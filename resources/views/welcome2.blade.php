@@ -60,7 +60,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <a href="" style="text-decoration: none; color: black;">
+                        <a href="https://www.bps.go.id/subject/40/gender.html#subjekViewTab3" target="_blank" style="text-decoration: none; color: black;">
                             <div class="card mb-3 border-secondary border-3 text-center" style="border-radius: 15px">
                                 <div class="card-body p-1">
                                     <img src="{{asset('images/icon1.png')}}" class="card-img-top" style="width: 5vw;height: 5vw;object-fit: cover;">
@@ -71,7 +71,7 @@
                         </a>
                     </div>
                     <div class="row">
-                        <a href="" style="text-decoration: none; color: black;">
+                        <a href="https://www.bps.go.id/subject/8/ekspor-impor.html#subjekViewTab3" target="_blank" style="text-decoration: none; color: black;">
                             <div class="card mb-3 border-secondary border-3 text-center" style="border-radius: 15px">
                                 <div class="card-body p-1">
                                     <img src="{{asset('images/icon2.png')}}" class="card-img-top" style="width: 5vw;height: 5vw;object-fit: cover;">
@@ -82,7 +82,7 @@
                         </a>
                     </div>
                     <div class="row">
-                        <a href="" style="text-decoration: none; color: black;">
+                        <a href="https://www.bps.go.id/subject/55/hortikultura.html#subjekViewTab3" target="_blank" style="text-decoration: none; color: black;">
                             <div class="card mb-3 border-secondary border-3 text-center" style="border-radius: 15px">
                                 <div class="card-body p-1">
                                     <img src="{{asset('images/icon3.png')}}" class="card-img-top" style="width: 5vw;height: 5vw;object-fit: cover;">
