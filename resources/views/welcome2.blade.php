@@ -41,12 +41,15 @@
         </nav>
 
         <header class="mb-4" style="background-color: #92d18d;">
-            <div class="container d-flex flex-wrap justify-content-center">
+            <div class="container d-flex flex-wrap justify-content-center align-items-center">
                 <a href="/" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none">
                     <img class="logo"  style="background-color: white;" height="55px" src="{{asset('images/logo2.png')}}">
                 </a>
-                <div class="col-12 col-lg-10 my-1">
+                <div class="col-11 col-lg-9 my-1">
                     <h2 style="text-align: center; letter-spacing: 5px; color: white;">DATA ANALYTIC WORKSHOP</h2>
+                </div>
+                <div class="col-1 col-lg-1">
+                    <a class="btn btn-secondary d-lg-inline-block" href="{{ route('login') }}">Login</a>
                 </div>
             </div>
         </header>
@@ -65,7 +68,7 @@
                                 <div class="card-body p-1">
                                     <img src="{{asset('images/icon1.png')}}" class="card-img-top" style="width: 5vw;height: 5vw;object-fit: cover;">
                                     <h6 class="m-0">Sosial dan</h6>
-                                    <h6 class="m-0">Kependudukan</h6>
+                                    <h6 class="m-0">Kependudukan</h6>                                    
                                 </div>
                             </div>
                         </a>

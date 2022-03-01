@@ -1,7 +1,7 @@
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
-            <x-jet-authentication-card-logo />
+            <img src="{{asset('images/advis.png')}}" width="300px">
         </x-slot>
 
         <x-jet-validation-errors class="mb-4" />
@@ -38,6 +38,10 @@
                         {{ __('Forgot your password?') }}
                     </a>
                 @endif
+
+                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('register') }}">
+                    {{ __('Create an Account') }}
+                </a>
 
                 <x-jet-button class="ml-4">
                     {{ __('Log in') }}
