@@ -13,24 +13,28 @@ use App\Models\Dataset\Bps\Period;
 use App\Models\Dataset\Bps\Unit;
 
 class ApiBps extends Controller
-{
+{ 
     public function subject() 
     {   
 
-
+        // Ambil API key dari file env
         $key = Config::get('apikeys.bps_key');
 
+        // Request API (halaman pertama) ke BPS
         $res0 = Http::get('https://webapi.bps.go.id/v1/api/list/model/subject/domain/0000/page/1/key/'. $key)['data']['0'];
 
+        // Set halaman saat ini dan total halaman 
         $page = $res0['page']; 
         $pages = $res0['pages']; 
 
+        // Request API (seluruh halaman) ke BPS
         $res1 = [];
         for($i = $page; $i<=$pages; $i++) {
             $res2 = Http::get('https://webapi.bps.go.id/v1/api/list/model/subject/domain/0000/page/'. $i .'/key/'. $key)['data']['1'];
             $res1 = array_merge($res1, $res2);
         }
 
+        // Simpan respon API ke database
         foreach($res1 as $insert)
         {
             $dat = Subject::firstOrNew(['sub_id' => $insert['sub_id']]);
