@@ -59,7 +59,9 @@
                 <div class="col-md-auto mx-3">
                     <div class="row">
                         <div class="card px-3 py-2 mb-3 text-white bg-secondary text-center rounded-0">
-                            <h4 class="m-0">GET DATA</h4>
+                            <a href="/bps" target="_blank" style="text-decoration: none; color: black;">
+                                <h4 class="m-0">GET DATA</h4>
+                            </a>
                         </div>
                     </div>
                     <div class="row">
