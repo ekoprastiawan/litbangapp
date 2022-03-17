@@ -18,4 +18,12 @@ class RefKategori extends Model
     protected $fillable = [
         'nama_kategori'
     ];
+
+    /**
+     * Relasi ke RefSubKategori.
+     */
+    public function refSubKategori()
+    {
+        return $this->hasMany(RefSubKategori::class);
+    }
 }

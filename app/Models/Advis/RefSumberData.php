@@ -20,4 +20,12 @@ class RefSumberData extends Model
         'singkat_sumber_data',
         'ket_sumber_data'
     ];
+
+    /**
+     * Relasi ke TListData.
+     */
+    public function tListData()
+    {
+        return $this->hasMany(TListData::class);
+    }
 }

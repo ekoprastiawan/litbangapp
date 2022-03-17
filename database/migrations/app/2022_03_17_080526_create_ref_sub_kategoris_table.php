@@ -16,6 +16,7 @@ class CreateRefSubKategorisTable extends Migration
         Schema::connection('mysql')->create('ref_sub_kategoris', function (Blueprint $table) {
             $table->id();
             $table->string('nama_sub_kategori');
+            $table->integer('ref_kategori_id');
             $table->timestamps();
         });
     }

@@ -16,6 +16,23 @@ class RefSubKategori extends Model
      * @var string[]
      */
     protected $fillable = [
-        'nama_sub_kategori'
+        'nama_sub_kategori',
+        'ref_kategori_id'
     ];
+
+    /**
+     * Relasi dari RefKategori.
+     */
+    public function refKategori()
+    {
+        return $this->belongsTo(RefKategori::class);
+    }
+
+    /**
+     * Relasi ke TListData.
+     */
+    public function tListData()
+    {
+        return $this->hasMany(TListData::class);
+    }
 }

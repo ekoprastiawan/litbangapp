@@ -16,12 +16,27 @@ class TListData extends Model
      * @var string[]
      */
     protected $fillable = [
-        'id_kategori',
-        'id_sub_kategori',
-        'id_sumber_data',
+        'ref_sub_kategori_id',
+        'ref_sumber_data_id',
         'nama_data',
         'url_data',
         'created_by',
         'updated_by'
     ];
+
+    /**
+     * Relasi dari RefSubKategori.
+     */
+    public function refSubKategori()
+    {
+        return $this->belongsTo(RefSubKategori::class);
+    }
+
+    /**
+     * Relasi dari RefSumberData.
+     */
+    public function refSumberData()
+    {
+        return $this->belongsTo(RefSumberData::class);
+    }
 }

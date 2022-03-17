@@ -15,9 +15,8 @@ class CreateTListDataTable extends Migration
     {
         Schema::connection('mysql')->create('t_list_data', function (Blueprint $table) {
             $table->id();
-            $table->integer('id_kategori');
-            $table->integer('id_sub_kategori');
-            $table->integer('id_sumber_data');
+            $table->integer('ref_sub_kategori_id');
+            $table->integer('ref_sumber_data_id');
             $table->string('nama_data');
             $table->string('url_data');
             $table->string('created_by');
