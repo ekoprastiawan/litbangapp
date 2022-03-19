@@ -4,10 +4,15 @@ namespace App\Models\Advis;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class TListData extends Model
 {
-    use HasFactory;
+    use HasFactory,
+        SoftDeletes;
+
+    protected $table = 't_list_data';
+    protected $primaryKey = 'id';
     protected $connection = 'mysql';
 
     /**
@@ -29,7 +34,7 @@ class TListData extends Model
      */
     public function refSubKategori()
     {
-        return $this->belongsTo(RefSubKategori::class);
+        return $this->belongsTo(RefSubKategori::class,'ref_sub_kategori_id','id');
     }
 
     /**
@@ -37,6 +42,6 @@ class TListData extends Model
      */
     public function refSumberData()
     {
-        return $this->belongsTo(RefSumberData::class);
+        return $this->belongsTo(RefSumberData::class,'ref_sumber_data_id','id');
     }
 }
