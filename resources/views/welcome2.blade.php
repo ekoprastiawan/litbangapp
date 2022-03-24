@@ -13,6 +13,7 @@
                     <div class="card px-3 py-2 mb-3 text-white bg-secondary text-center rounded-0">
                         <a href="{{ route('list-data.index') }}" style="text-decoration: none; color: white;">
                         <h4 class="m-0">GET DATA</h4>
+                        </a>
                     </div>
                 </div>
                 <div class="row">
@@ -54,7 +55,7 @@
                 <div class="row">
                     <div class="card px-3 py-2 mb-3 border-secondary border-3"
                         style="background-color: whitesmoke;border-radius: 10px">
-                        <a href="{{ route('list-data.index') }}" target="_blank" style="text-decoration: none; color: black;">
+                        <a href="{{ route('list-data.index') }}" style="text-decoration: none; color: black;">
                             <h6 class="m-0">GET ALL DATA</h6>
                         </a>
                     </div>

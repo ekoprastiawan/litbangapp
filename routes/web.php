@@ -30,8 +30,7 @@ Route::name('list-data.')
     ->group(function(){
         Route::get('/',[\App\Http\Controllers\DataController::class,'index'])
             ->name('index');
-        Route::get('/{id}',[\App\Http\Controllers\DataController::class,'index_kat'])
-            ->name('index_kategori');
+
         Route::get('/create',[\App\Http\Controllers\DataController::class,'create'])
             ->name('create');
         Route::get('/edit',[\App\Http\Controllers\DataController::class,'edit'])
@@ -41,6 +40,9 @@ Route::name('list-data.')
             ->name('store');
         Route::post('/update',[\App\Http\Controllers\DataController::class,'update'])
             ->name('update');
+
+        Route::get('/{id}',[\App\Http\Controllers\DataController::class,'index_kat'])
+            ->name('index_kategori');
     });
 
 Route::name('async-req.')
