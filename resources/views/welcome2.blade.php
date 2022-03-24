@@ -11,11 +11,12 @@
             <div class="col-md-auto mx-3">
                 <div class="row">
                     <div class="card px-3 py-2 mb-3 text-white bg-secondary text-center rounded-0">
+                        <a href="{{ route('list-data.index') }}" style="text-decoration: none; color: white;">
                         <h4 class="m-0">GET DATA</h4>
                     </div>
                 </div>
                 <div class="row">
-                    <a href="/list-data" style="text-decoration: none; color: black;">
+                    <a href="{{ route('list-data.index_kategori',['id'=>1]) }}" style="text-decoration: none; color: black;">
                         <div class="card mb-3 border-secondary border-3 text-center" style="border-radius: 15px">
                             <div class="card-body p-1">
                                 <img src="{{ asset('images/icon1.png') }}" class="card-img-top"
@@ -27,7 +28,7 @@
                     </a>
                 </div>
                 <div class="row">
-                    <a href="/list-data" style="text-decoration: none; color: black;">
+                    <a href="{{ route('list-data.index_kategori',['id'=>3]) }}" style="text-decoration: none; color: black;">
                         <div class="card mb-3 border-secondary border-3 text-center" style="border-radius: 15px">
                             <div class="card-body p-1">
                                 <img src="{{ asset('images/icon2.png') }}" class="card-img-top"
@@ -39,7 +40,7 @@
                     </a>
                 </div>
                 <div class="row">
-                    <a href="/list-data" style="text-decoration: none; color: black;">
+                    <a href="{{ route('list-data.index_kategori',['id'=>2]) }}" style="text-decoration: none; color: black;">
                         <div class="card mb-3 border-secondary border-3 text-center" style="border-radius: 15px">
                             <div class="card-body p-1">
                                 <img src="{{ asset('images/icon3.png') }}" class="card-img-top"
@@ -53,7 +54,7 @@
                 <div class="row">
                     <div class="card px-3 py-2 mb-3 border-secondary border-3"
                         style="background-color: whitesmoke;border-radius: 10px">
-                        <a href="/list-data" target="_blank" style="text-decoration: none; color: black;">
+                        <a href="{{ route('list-data.index') }}" target="_blank" style="text-decoration: none; color: black;">
                             <h6 class="m-0">GET ALL DATA</h6>
                         </a>
                     </div>

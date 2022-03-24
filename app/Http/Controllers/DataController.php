@@ -18,6 +18,18 @@ class DataController extends Controller
         return view('crud_listdata.index_listdata',$data);
     }
 
+    public function index_kat(Request $request)
+    {
+        $idData = $request->route('id');
+        $data['dataList'] = TListData::select('t_list_data.id as id','nama_kategori','nama_sub_kategori','nama_data','nama_sumber_data','url_data')
+            ->join('ref_sub_kategoris','ref_sub_kategoris.id','=','t_list_data.ref_sub_kategori_id')
+            ->join('ref_kategoris','ref_kategoris.id','=','ref_sub_kategoris.ref_kategori_id')
+            ->join('ref_sumber_data','ref_sumber_data.id','=','t_list_data.ref_sumber_data_id')
+            ->where('ref_kategoris.id',$idData)
+            ->get();
+        return view('crud_listdata.index_kategori',$data);
+    }
+
     public function create()
     {
         $data['ref_kategories'] = RefKategori::all();
