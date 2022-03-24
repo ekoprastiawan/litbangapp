@@ -45,6 +45,23 @@ Route::name('list-data.')
             ->name('index_kategori');
     });
 
+
+Route::name('visual.')
+    ->prefix('visual')
+    ->group(function(){
+        Route::get('/',[\App\Http\Controllers\VisualController::class,'index'])
+            ->name('index');
+        Route::get('/create',[\App\Http\Controllers\VisualController::class,'create'])
+            ->name('create');
+        Route::get('/edit',[\App\Http\Controllers\VisualController::class,'edit'])
+            ->name('edit');
+
+        Route::post('/store',[\App\Http\Controllers\VisualController::class,'store'])
+            ->name('store');
+        Route::post('/update',[\App\Http\Controllers\VisualController::class,'update'])
+            ->name('update');
+    });
+    
 Route::name('async-req.')
     ->prefix('async-req')
     ->group(function(){

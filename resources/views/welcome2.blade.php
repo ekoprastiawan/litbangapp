@@ -122,7 +122,9 @@
             <div class="col-lg-5 mx-3">
                 <div class="row">
                     <div class="card px-3 py-2 mb-3 text-white bg-secondary text-center rounded-0">
-                        <h4 class="m-0">INDONESIA SUPERVISORY DATA TODAY</h4>
+                        <a href="{{ route('visual.index') }}" style="text-decoration: none; color: white;">
+                            <h4 class="m-0">INDONESIA SUPERVISORY DATA TODAY</h4>
+                        </a>
                     </div>
                 </div>
                 <div class="row">
@@ -131,17 +133,7 @@
                         <div class="row">
                             <div class="col-12">
                                 <div id="container1" class="m-0"
-                                    style="height: 250px; min-width: 500px; max-width: 800px; margin: 0 auto;"></div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-6">
-                                <div id="pie" class="m-0"
-                                    style="height: 150px; min-width: 250px; max-width: 600px; margin: 0 auto;"></div>
-                            </div>
-                            <div class="col-6">
-                                <div id="pie2" class="m-0"
-                                    style="height: 150px; min-width: 250px; max-width: 600px; margin: 0 auto;"></div>
+                                    style="height: 300px; min-width: 500px; max-width: 800px; margin: 0 auto;"></div>
                             </div>
                         </div>
                     </div>
@@ -247,7 +239,7 @@
                     }
                 },
                 dataLabels: {
-                    enabled: true,
+                    enabled: false,
                     format: '{point.name}'
                 }
             }]
