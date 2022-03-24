@@ -28,6 +28,8 @@
     <meta property="og:image:width" content="150">
     <meta property="og:image:height" content="150">
 
+
+
     <title>ADVIS - Analisis Data dan Visualisasi</title>
 
     
@@ -53,10 +55,16 @@
                     src="{{ asset('images/logo2.png') }}">
             </a>
             <div class="col-11 col-lg-9 my-1">
-                <h2 style="text-align: center; letter-spacing: 5px; color: white;">DATA ANALYTIC WORKSHOP</h2>
+                <a href="{{ route('landing') }}">
+                    <h2 style="text-align: center; letter-spacing: 5px; color: white;">DATA ANALYTIC WORKSHOP</h2>
+                </a>
             </div>
             <div class="col-1 col-lg-1">
-                <a class="btn btn-secondary d-lg-inline-block" href="{{ route('login') }}">Login</a>
+                @if(auth('sanctum')->check() == 'true')
+                    <a class="btn btn-default d-lg-inline-block" href="{{ route('logout') }}" style="background-color: #ffffff">Logout</a>
+                @else
+                    <a class="btn btn-default d-lg-inline-block" href="{{ route('login') }}" style="background-color: #ffffff">Login</a>
+                @endif
             </div>
         </div>
     </header>

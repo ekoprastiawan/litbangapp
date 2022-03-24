@@ -16,7 +16,7 @@ use App\Http\Controllers\ApiBps;
 
 Route::get('/', function () {
     return view('welcome2');
-});
+})->name('landing');
 
 Route::get('/subject', [ApiBps::class, 'subject']);
 Route::get('/subcat', [ApiBps::class, 'subcat']);
@@ -27,6 +27,7 @@ Route::get('/unit', [ApiBps::class, 'unit']);
 
 Route::name('list-data.')
     ->prefix('list-data')
+    ->middleware(['auth:sanctum', 'verified'])
     ->group(function(){
         Route::get('/',[\App\Http\Controllers\DataController::class,'index'])
             ->name('index');
@@ -48,6 +49,7 @@ Route::name('list-data.')
 
 Route::name('visual.')
     ->prefix('visual')
+    ->middleware(['auth:sanctum', 'verified', 'visual-data'])
     ->group(function(){
         Route::get('/',[\App\Http\Controllers\VisualController::class,'index'])
             ->name('index');
@@ -69,6 +71,6 @@ Route::name('async-req.')
             ->name('get-sub-kategori');
     });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+Route::group(['middleware' => 'auth:sanctum'], function() {
+    Route::get('logout', [\App\Http\Controllers\AuthController::class, 'logout']);
+});
