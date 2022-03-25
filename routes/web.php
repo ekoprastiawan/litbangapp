@@ -63,7 +63,24 @@ Route::name('visual.')
         Route::post('/update',[\App\Http\Controllers\VisualController::class,'update'])
             ->name('update');
     });
-    
+
+    Route::name('analytic.')
+    ->prefix('analytic')
+    ->group(function () {
+        Route::get('/', [\App\Http\Controllers\AnalyticController::class, 'index'])
+            ->name('index');
+        Route::get('/detail', [\App\Http\Controllers\AnalyticController::class, 'detail'])
+            ->name('detail');
+        Route::get('/create', [\App\Http\Controllers\AnalyticController::class, 'create'])
+            ->name('create');
+        Route::get('/edit', [\App\Http\Controllers\AnalyticController::class, 'edit'])
+            ->name('edit');
+        Route::post('/store', [\App\Http\Controllers\AnalyticController::class, 'store'])
+            ->name('store');
+        Route::post('/update', [\App\Http\Controllers\AnalyticController::class, 'update'])
+            ->name('update');
+    });
+
 Route::name('async-req.')
     ->prefix('async-req')
     ->group(function(){
