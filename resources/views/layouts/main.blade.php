@@ -50,12 +50,12 @@
     <header class="mb-4" style="background-color: #92d18d;">
         <div class="container d-flex flex-wrap justify-content-center align-items-center">
             <a href="/" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none">
-                <img class="logo" style="background-color: white;" height="55px"
-                    src="{{ asset('images/logo2.png') }}">
+                <img class="logo" style="background-color: white;" height="70px"
+                    src="{{ asset('images/advis.png') }}">
             </a>
             <div class="col-11 col-lg-9 my-1">
                 <a href="{{ route('landing') }}" style="text-decoration: none; color: white;">
-                    <h2 style="text-align: center; letter-spacing: 5px; color: white;">DATA ANALYTIC WORKSHOP</h2>
+                    <h2 style="text-align: center; letter-spacing: 5px; color: white;">ANALISIS DATA DAN EVALUASI</h2>
                 </a>
             </div>
             <div class="col-1 col-lg-1">
