@@ -55,7 +55,7 @@
             </a>
             <div class="col-11 col-lg-9 my-1">
                 <a href="{{ route('landing') }}" style="text-decoration: none; color: white;">
-                    <h2 style="text-align: center; letter-spacing: 5px; color: white;">ANALISIS DATA DAN EVALUASI</h2>
+                    <h2 style="text-align: center; letter-spacing: 5px; color: white;">ANALISIS DATA DAN VISUALISASI</h2>
                 </a>
             </div>
             <div class="col-1 col-lg-1">
