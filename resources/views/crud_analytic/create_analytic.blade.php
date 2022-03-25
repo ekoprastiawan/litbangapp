@@ -1,4 +1,4 @@
-@include('layouts.crud')
+@extends('layouts.crud')
 
 @section('main')
     <div class="container">
