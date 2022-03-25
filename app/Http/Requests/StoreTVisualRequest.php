@@ -26,7 +26,7 @@ class StoreTVisualRequest extends FormRequest
         return [
             'judul' => 'required',
             'label' => 'required',
-            'file_url' => 'required',
+            'file_url' => 'required|mimes:csv,txt',
             'ref_jenis_visual_id' => 'required'
         ];
     }
@@ -36,7 +36,7 @@ class StoreTVisualRequest extends FormRequest
         return [
             'judul.required' => 'Judul Tidak Boleh Kosong',
             'label.required' => 'Label Tidak Boleh Kosong',
-            'file_url.required' => 'File Data Tidak Boleh Kosong',
+            'file_url.required' => 'Silahkan upload file .csv',
             'ref_jenis_visual_id.required' => 'Jenis Visual Tidak Boleh Kosong'
         ];
     }

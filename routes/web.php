@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApiBps;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +15,11 @@ use App\Http\Controllers\ApiBps;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome2');
-})->name('landing');
+// Route::get('/', function () {
+//     return view('welcome2');
+// })->name('landing');
+
+Route::get('/', [HomeController::class, 'index'])->name('landing');
 
 Route::get('/subject', [ApiBps::class, 'subject']);
 Route::get('/subcat', [ApiBps::class, 'subcat']);
@@ -24,6 +27,8 @@ Route::get('/turth', [ApiBps::class, 'turth']);
 Route::get('/turvar', [ApiBps::class, 'turvar']);
 Route::get('/th', [ApiBps::class, 'th']);
 Route::get('/unit', [ApiBps::class, 'unit']);
+
+
 
 Route::name('list-data.')
     ->prefix('list-data')

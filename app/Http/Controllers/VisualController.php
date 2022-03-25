@@ -18,7 +18,7 @@ class VisualController extends Controller
      */
     public function index()
     {
-        $data['visual'] = TVisual::with('refJenisVisual')->get();
+        $data['visual'] = TVisual::with('refJenisVisual')->orderBy('id', 'desc')->get();
 
         return view('crud_visual.index_visual',$data);
     }
@@ -49,7 +49,7 @@ class VisualController extends Controller
 
         if(!empty($request->file('file_url')))
         {
-            $extension = $request->file('file_url')->extension();
+            $extension = $request->file('file_url')->getClientOriginalExtension();
             $filenameVisual = sha1(time().time()).".".$extension;
             $tujuanUpload = 'public/visual';
             $uploadFile = $request->file('file_url')->storeAs($tujuanUpload, $filenameVisual);
@@ -111,7 +111,7 @@ class VisualController extends Controller
             if (Storage::exists($linkExist)) {
                 Storage::delete($linkExist);
             }
-            $extension = $request->file('file_url')->extension();
+            $extension = $request->file('file_url')->getClientOriginalExtension();
             $filenameVisual = sha1(time().time()).".".$extension;
             $tujuanUpload = 'public/visual';
             $uploadFile = $request->file('file_url')->storeAs($tujuanUpload, $filenameVisual);

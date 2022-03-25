@@ -16,7 +16,6 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="description" content="ADVIS - Analisis Data dan Visualisasi.">
-    <meta name="author" content="Eko Rosdiansa Prastiawan">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/logo.jpg') }}">
     <meta property="og:url" content="https://renzho.site">
@@ -55,7 +54,7 @@
                     src="{{ asset('images/logo2.png') }}">
             </a>
             <div class="col-11 col-lg-9 my-1">
-                <a href="{{ route('landing') }}">
+                <a href="{{ route('landing') }}" style="text-decoration: none; color: white;">
                     <h2 style="text-align: center; letter-spacing: 5px; color: white;">DATA ANALYTIC WORKSHOP</h2>
                 </a>
             </div>

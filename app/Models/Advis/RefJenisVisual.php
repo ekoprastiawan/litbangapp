@@ -17,7 +17,8 @@ class RefJenisVisual extends Model
      * @var string[]
      */
     protected $fillable = [
-        'nama_jenis_visual'
+        'nama_jenis_visual',
+        'tipe'
     ];
 
     /**

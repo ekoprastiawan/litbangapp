@@ -16,6 +16,7 @@ class CreateRefJenisVisualsTable extends Migration
         Schema::connection('mysql')->create('ref_jenis_visuals', function (Blueprint $table) {
             $table->id();
             $table->string('nama_jenis_visual');
+            $table->string('tipe');
             $table->timestamps();
         });
     }
