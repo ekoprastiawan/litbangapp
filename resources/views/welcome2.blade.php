@@ -282,6 +282,7 @@
             var judul = document.getElementById("judul").value;
             var label = document.getElementById("label").value;
             var tipe = document.getElementById("tipe").value;
+            var URL = window.location.origin;
 
 
             Highcharts.chart('container2', {
@@ -290,7 +291,7 @@
                 },
                 data: {
 
-                    csvURL: '/storage' + link
+                    csvURL: URL + '/storage' + link
                 },
                 title: {
                     text: judul
