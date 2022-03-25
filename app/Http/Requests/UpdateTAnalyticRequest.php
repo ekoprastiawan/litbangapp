@@ -25,8 +25,7 @@ class UpdateTAnalyticRequest extends FormRequest
     {
         return [
             'judul' => 'required',
-            'uraian' => 'required',
-            'dashboard_url' => 'required'
+            'uraian' => 'required'
         ];
     }
 
@@ -34,8 +33,7 @@ class UpdateTAnalyticRequest extends FormRequest
     {
         return [
             'judul.required' => 'Judul Tidak Boleh Kosong',
-            'uraian.required' => 'Uraian Tidak Boleh Kosong',
-            'dashboard_url.required' => 'Link deskripsi Tidak Boleh Kosong'
+            'uraian.required' => 'Uraian Tidak Boleh Kosong'
         ];
     }
 }

@@ -27,8 +27,7 @@ class StoreTAnalyticRequest extends FormRequest
             'judul' => 'required',
             'uraian' => 'required',
             'img_url' => 'required',
-            'file_url' => 'required|mimes:csv,txt',
-            'dashboard_url' => 'required'
+            'file_url' => 'required|mimes:pdf'
         ];
     }
 
@@ -38,8 +37,7 @@ class StoreTAnalyticRequest extends FormRequest
             'judul.required' => 'Judul Tidak Boleh Kosong',
             'uraian.required' => 'Uraian Tidak Boleh Kosong',
             'img_url.required' => 'File Gambar Tidak Boleh Kosong',
-            'file_url.required' => 'File Tidak Boleh Kosong',
-            'dashboard_url.required' => 'link Dashboard Tidak Boleh Kosong'
+            'file_url.required' => 'File Tidak Boleh Kosong'
         ];
     }
 }
