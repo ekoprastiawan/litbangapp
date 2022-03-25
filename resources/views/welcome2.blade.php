@@ -92,7 +92,7 @@
                                 <h5>{{$post->judul}}</h5>
                             </div>
                             <div class="col-5">
-                                <img src="/storage{{ ($post->img_url) }}"
+                                <img src="/public/storage{{ ($post->img_url) }}"
                                     style="width: 100%;height: 8vw;object-fit: contain;">
                             </div>
                         </div>
