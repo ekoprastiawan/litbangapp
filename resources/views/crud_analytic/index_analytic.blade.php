@@ -52,10 +52,10 @@
                                         </td>
 
                                         <td> <a href='{{ asset('storage' . $data->file_url) }}'
-                                                target='_blank'>Download</a>
+                                                target='_blank'>Read Report</a>
                                         </td>
                                         <td><a href="{{ $data->dashboard_url }}" target="_blank"><i
-                                                    class="fa fa-download"></i> Download</a></td>
+                                                    class="fa fa-download"></i> View Dashboard</a></td>
 
                                         <td>
                                             <a href="{{ route('analytic.edit', ['id-data' => $data->id]) }}"

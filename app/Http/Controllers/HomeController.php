@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Advis\TVisual;
+use App\Models\Advis\TAnalytic;
 
 class HomeController extends Controller
 {
@@ -30,6 +31,12 @@ class HomeController extends Controller
                         ->orderBy('id', 'desc')
                         ->first();
         }
+
+        $data['analytic'] = TAnalytic::orderBy('id', 'desc')
+                        ->limit(2)
+                        ->get();
+
+
 
         return view('welcome2',$data);
     }

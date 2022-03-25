@@ -84,56 +84,28 @@
                 </div>
 
                 <div class="row">
+                    @foreach($analytic as $post)
                     <div class="card p-2 mb-3 border-secondary border-3"
                         style="background-color: whitesmoke;border-radius: 15px">
                         <div class="row align-items-center mb-2">
                             <div class="col-7" style="color: mediumblue;">
-                                <h5>Analisis Korelasi Kapasitas Fiskal Daerah dengan Dana Perimbangan</h5>
+                                <h5>{{$post->judul}}</h5>
                             </div>
                             <div class="col-5">
-                                <img src="{{ asset('images/gambar1.jpg') }}"
+                                <img src="/storage{{ ($post->img_url) }}"
                                     style="width: 100%;height: 8vw;object-fit: contain;">
                             </div>
                         </div>
                         <div class="row">
-                            <p style="text-align:justify; line-height: 1.2;">5 Maret 2022. Dana Perimbangan dari Pemerintah
-                                Pusat kepada Pemerintah Daerah didistribusikan untuk mengurangi kesenjangan kapasitas fiskal
-                                antara Pusat dan Daerah, dan kesenjangan antar daerah. Pada sisi lain, setian Pemerintah
-                                Daerah di Indonesiao memiliki kapasitas fiskal yang berbeda. Dengan menggunakan metode uji
-                                korelasi dan analisis regresi, dilakukan penilaian apakah Dana Perimbangan akan mampu
-                                meningkatkan kapasitas fiskal daerah dan mengurangi kesenjangan.</p>
+                            <p style="text-align:justify; line-height: 1.2;">{{ Carbon\Carbon::parse($post->created_at)->format('d M Y') }}. {{ \Illuminate\Support\Str::words($post->uraian, 50) }}</p>
                             <div>
-                                <a href="" style="text-decoration: none; color: mediumblue; margin-right: 50px;">Read Report
+                                <a href="{{ asset('storage' . $post->file_url) }}" style="text-decoration: none; color: mediumblue; margin-right: 50px;" target='_blank'>Read Report
                                 </a>
-                                <a href="" style="text-decoration: none; color: mediumblue;">Read Dashboard</a>
+                                <a href="{{ $post->dashboard_url }}" target='_blank' style="text-decoration: none; color: mediumblue;">View Dashboard</a>
                             </div>
                         </div>
                     </div>
-                    <div class="card p-2 mb-3 border-secondary border-3"
-                        style="background-color: whitesmoke;border-radius: 15px">
-                        <div class="row align-items-center mb-2">
-                            <div class="col-7" style="color: mediumblue;">
-                                <h5>Pengembangan Dashboard Pengawasan Program Vaksinasi COVID</h5>
-                            </div>
-                            <div class="col-5">
-                                <img src="{{ asset('images/gambar2.jpg') }}"
-                                    style="width: 100%;height: 8vw;object-fit: contain;">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <p style="text-align:justify;line-height: 1.2;">10 Februari 2022. Pengawasan atas Program
-                                Vaksinasi Covid 19 akan semakin efektif jika didukung dashboad analisa data yang bekerja
-                                secara real time. Laporan ini menyajikan langkah-langkah pengembangan Dashboard Analisa Data
-                                Program Vaksinasi Covid dengan menggunakan aplikasi Power Business Intelegence.</p>
-                            <div>
-                                <a href="" style="text-decoration: none; color: mediumblue; margin-right: 50px;">Read Report
-                                </a>
-                                <a href="" style="text-decoration: none; color: mediumblue;">Read Dashboard</a>
-                            </div>
-
-                        </div>
-                    </div>
-
+                    @endforeach
                     <div class="card align-items-center px-3 py-2 mb-3 border-secondary border-3"
                         style="background-color: whitesmoke;border-radius: 15px">
                         <a href="{{ route('analytic.index') }}" style="text-decoration: none; color: black;">
