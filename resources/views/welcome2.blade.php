@@ -89,7 +89,9 @@
                         style="background-color: whitesmoke;border-radius: 15px">
                         <div class="row align-items-center mb-2">
                             <div class="col-7" style="color: mediumblue;">
+                                <a href="{{ route('analytic.detail', ['id-data' => $post->id]) }}" style="text-decoration: none; color: mediumblue; margin-right: 50px;">
                                 <h5>{{$post->judul}}</h5>
+                                </a>
                             </div>
                             <div class="col-5">
                                 <img src="/public/storage{{ ($post->img_url) }}"
