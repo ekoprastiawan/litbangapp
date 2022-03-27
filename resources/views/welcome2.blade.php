@@ -143,7 +143,17 @@
                 <div class="row">
                     <div class="card p-3 mb-3 border-secondary border-3"
                         style="background-color: whitesmoke;border-radius: 15px">
-                        Under Construction
+                        <a href="/askme" target='_blank' style="text-decoration: none; color: mediumblue;">
+                            <div class="row justify-content-center align-items-center">
+                                <div class="col-3">
+                                    <img src="{{ asset('images/icon4.jpg') }}" class="rounded float-end"
+                                    style="width: 5vw;height: 5vw;object-fit: cover;">
+                                </div>
+                                <div class="col-3">
+                                    <h5>Konsultasi</h5>
+                                </div>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>
