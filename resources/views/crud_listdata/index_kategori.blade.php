@@ -212,6 +212,44 @@
                  }     
               });
 
+            $("#ref_sub_kategori_id").on("change",function (){
+                $.ajax({
+                    url: URL+'/async-req/get-list-data',
+                    type: 'get',
+                    dataType: 'json',
+                    data:{
+                        "id-kategori": $('#id_kategori').val(),
+                        "id-sub-kategori": $(this).val()
+                    },
+                    success:function(data) {
+                        console.log(data);
+                        var t = $('#datapost').DataTable({
+                            "bDestroy": true, 
+                            bJQueryUI: true,
+                            aaData: data,
+                            aoColumns: [
+                                { mData: 'id' ,"fnRender": function( oObj ) { return oObj.aData[3].id }},
+                                { mData: 'ref_sub_kategori.ref_kategori.nama_kategori' ,"fnRender": function( oObj ) { return oObj.aData[5].ref_sub_kategori.ref_kategori.nama_kategori }},
+                                { mData: 'ref_sub_kategori.nama_sub_kategori' ,"fnRender": function( oObj ) { return oObj.aData[3].ref_sub_kategori.nama_sub_kategori }},
+                                { mData: 'nama_data' ,"fnRender": function( oObj ) { return oObj.aData[3].nama_data }},                    
+                                { mData: 'ref_sumber_data.nama_sumber_data' ,"fnRender": function( oObj ) { return oObj.aData[3].ref_sumber_data.nama_sumber_data }},
+                                { mData: 'url_data',"mRender": function(data, type, full) {
+                                  return '<a href="' + data + '" target="_blank"><i class="fa fa-download"></i> Download</a>';
+                                }}
+                                      ]
+
+                        });
+
+                        t.on( 'order.dt search.dt', function () {
+                            t.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+                                cell.innerHTML = i+1;
+                            });
+                        }).draw();
+
+                     }
+                });
+            });
+
         } );
     </script>
 @endif
