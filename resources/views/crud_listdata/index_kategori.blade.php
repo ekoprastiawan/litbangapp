@@ -180,6 +180,10 @@
                   url: URL+'/async-req/get-list-data',
                   type: 'get',
                   dataType: 'json',
+                  data:{
+                        "id-kategori": $('#id_kategori').val(),
+                        "id-sub-kategori": $(this).val()
+                    },
                   success:function(data) {
                     console.log(data);
                     var t = $('#datapost').DataTable({
