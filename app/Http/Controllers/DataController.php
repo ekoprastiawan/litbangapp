@@ -15,12 +15,16 @@ class DataController extends Controller
     public function index()
     {
         $data['dataList'] = TListData::with(['refSubKategori','refSubKategori.refKategori','refSumberData'])->get();
+        $data['ref_kategories'] = RefKategori::all();
+
         return view('crud_listdata.index_listdata',$data);
     }
 
     public function index_kat(Request $request)
     {
         $idData = $request->route('id');
+        $data['dataKategori'] = RefKategori::where('id',$idData)->first();
+        $data['dataSubKategori'] = RefSubKategori::where('ref_kategori_id',$idData)->get();
         $data['dataList'] = TListData::select('t_list_data.id as id','nama_kategori','nama_sub_kategori','nama_data','nama_sumber_data','url_data')
             ->join('ref_sub_kategoris','ref_sub_kategoris.id','=','t_list_data.ref_sub_kategori_id')
             ->join('ref_kategoris','ref_kategoris.id','=','ref_sub_kategoris.ref_kategori_id')

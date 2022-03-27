@@ -9,8 +9,8 @@
                     <div class="card-body">
                         <form method="POST" action="{{route('visual.store') }}" enctype="multipart/form-data">
                             @csrf
-                            <div class="form-group row">
-                                <label for="judul" class="col-md-4 col-form-label text-md-right">{{ __('Judul') }}</label>
+                            <div class="form-group row mb-3">
+                                <label for="judul" class="col-md-4 col-form-label text-md-end">{{ __('Judul *') }}</label>
                                 <div class="col-md-6">
                                     <input id="judul" type="text" class="form-control @error('judul') is-invalid @enderror" name="judul" value="{{ old('judul') }}" autocomplete="judul" autofocus>
                                     @error('judul')
@@ -21,8 +21,8 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
-                                <label for="label" class="col-md-4 col-form-label text-md-right">{{ __('Label') }}</label>
+                            <div class="form-group row mb-3">
+                                <label for="label" class="col-md-4 col-form-label text-md-end">{{ __('Label *') }}</label>
                                 <div class="col-md-6">
                                     <input id="label" type="text" class="form-control @error('label') is-invalid @enderror" name="label" value="{{ old('label') }}" autocomplete="label" autofocus>
                                     @error('label')
@@ -33,8 +33,8 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
-                                <label for="file_url" class="col-md-4 col-form-label text-md-right">{{ __('File Data') }}</label>
+                            <div class="form-group row mb-3">
+                                <label for="file_url" class="col-md-4 col-form-label text-md-end">{{ __('File Data *') }}</label>
                                 <div class="col-md-6">
                                     <input id="file_url" type="file" class="form-control @error('file_url') is-invalid @enderror" name="file_url" value="{{ old('file_url') }}" autocomplete="file_url" autofocus>
                                     @error('file_url')
@@ -45,8 +45,8 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
-                                <label for="ref_jenis_visual_id" class="col-md-4 col-form-label text-md-right">{{ __('Jenis Visualisasi') }}</label>
+                            <div class="form-group row mb-3">
+                                <label for="ref_jenis_visual_id" class="col-md-4 col-form-label text-md-end">{{ __('Jenis Visualisasi *') }}</label>
                                 <div class="col-md-6">
                                     <select name="ref_jenis_visual_id" class="form-control @error('ref_jenis_visual_id') is-invalid @enderror" id="ref_jenis_visual_id" autocomplete="ref_jenis_visual_id" autofocus>
                                         @foreach($ref_jenis_visual as $jenis)
@@ -61,8 +61,8 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
-                                <label for="pilih_visual" class="col-md-4 col-form-label text-md-right">{{ __('Tampilkan Visualisasi') }}</label>
+                            <div class="form-group row mb-3">
+                                <label for="pilih_visual" class="col-md-4 col-form-label text-md-end">{{ __('Tampilkan Visualisasi *') }}</label>
                                 <div class="col-md-6">
                                     <div class="form-check">
                                       <input class="form-check-input" type="radio" name="pilih_visual" id="visual1" value="1">
@@ -100,3 +100,11 @@
 
 @endsection
 
+@push('js1')
+    <script>
+        $(document).ready(function (){
+            $("#ref_jenis_visual_id").select2({theme: 'bootstrap-5'});
+            
+        });
+    </script>
+@endpush

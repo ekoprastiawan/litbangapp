@@ -1,12 +1,5 @@
 @extends('layouts.main')
-@push('styles')
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css"/>
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.1/css/dataTables.bootstrap4.min.css"/>
-@endpush
-@push('scripts')
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-@endpush
+
 @section('content')
         <div class="container-fluid">
             <div class="row">
@@ -23,46 +16,58 @@
                                     </div>
                                 @endif
                             </div>
-                            @if(\Illuminate\Support\Facades\Auth::guard('web')->user()->role_id == '2'
-                                || \Illuminate\Support\Facades\Auth::guard('web')->user()->role_id == '3')
+                            <div class="form-group row mb-2">
+                                <label for="ref_kategori_id" class="col-md-4 col-form-label text-md-end">{{ __('Kategori *') }}</label>
+                                <div class="col-md-6">
+                                    <select name="ref_kategori_id" class="form-select" id="ref_kategori_id" autocomplete="ref_kategori_id" autofocus data-placeholder="--Pilih Kategori--">
+                                        <option value="">--Pilih Kategori--</option>
+                                        @foreach($ref_kategories as $kategori)
+                                            <option value="{{$kategori->id}}">{{$kategori->nama_kategori}}</option>
+                                        @endforeach
+                                    </select>
+                                    @error('ref_kategori_id')
+                                    <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="form-group row mb-2">
+                                <label for="ref_sub_kategori_id" class="col-md-4 col-form-label text-md-end">{{ __('Sub Kategori *') }}</label>
+                                <div class="col-md-6">
+                                    <select name="ref_sub_kategori_id" class="form-control @error('ref_sub_kategori_id') is-invalid @enderror" id="ref_sub_kategori_id" autocomplete="ref_sub_kategori_id" autofocus data-placeholder="--Pilih Sub Kategori--">
+                                        <option value="">{{'--Pilih Sub Kategori--'}}</option>
+                                    </select>
+                                    @error('ref_sub_kategori_id')
+                                    <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
+                            @if(Auth::guard('web')->user()->role_id == '2' || Auth::guard('web')->user()->role_id == '3')
                                 <div class="d-flex flex-row-reverse">
                                     <a style="margin-bottom: 1em;" href="{{ route('list-data.create') }}" class="btn btn-primary btn-sm pull-right">Tambah Post</a>
                                 </div>
                             @endif
-                            <table id="datapost" class="table table-striped table-bordered" style="width: 100%">
+                            <div class="table-responsive-lg">
+                                {{ csrf_field() }}
+                            <table id="datapost" class="display" style="width: 100%">
                                 <thead>
                                 <tr>
-                                    <th>No</th>
-                                    <th>Kategori</th>
-                                    <th>Sub Kategori</th>
-                                    <th>Nama File</th>
-                                    <th>Sumber Data</th>
-                                    <th>Link</th>
-                                    @if(\Illuminate\Support\Facades\Auth::guard('web')->user()->role_id == '2' && '3')
+                                    <th style="text-align: center;" width="5%">No</th>
+                                    <th style="text-align: center;" width="15%">Kategori</th>
+                                    <th style="text-align: center;" width="15%">Sub Kategori</th>
+                                    <th style="text-align: center;">Nama Data</th>
+                                    <th style="text-align: center;" width="15%">Sumber Data</th>
+                                    <th style="text-align: center;" width="6%">Link</th>
+                                    @if(Auth::guard('web')->user()->role_id == '2' || Auth::guard('web')->user()->role_id == '3')
                                         <th></th>
                                     @endif
                                 </tr>
                                 </thead>
-                                <tbody>
-
-                                @foreach($dataList as $data)
-                                    <tr>
-                                        <td>{{ $loop->iteration }}</td>
-                                        <td>{{$data->refSubKategori->refKategori->nama_kategori}}</td>
-                                        <td>{{$data->refSubKategori->nama_sub_kategori}}</td>
-                                        <td>{{$data->nama_data}}</td>
-                                        <td>{{$data->refSumberData->nama_sumber_data}}</td>
-                                        <td><a href="{{$data->url_data}}" target="_blank"><i class="fa fa-download"></i> Download</a></td>
-                                        @if(\Illuminate\Support\Facades\Auth::guard('web')->user()->role_id == '2'
-                                            || \Illuminate\Support\Facades\Auth::guard('web')->user()->role_id == '3')
-                                            <td>
-                                                <a href="{{ route('list-data.edit',['id-data'=>$data->id])}}" class="btn btn-primary">Edit</a>
-                                            </td>
-                                        @endif
-                                    </tr>
-                                @endforeach
-                                </tbody>
                             </table>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -70,16 +75,150 @@
         </div>
 @endsection
 
-@push('scripts')
-    <!-- Bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    
-    <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.11.1/js/dataTables.bootstrap4.min.js"></script>
-
+@push('js1')
+@if(Auth::guard('web')->user()->role_id == '2' || Auth::guard('web')->user()->role_id == '3')
     <script>
+        var URL = window.location.origin;
         $(document).ready(function() {
-            $('#datapost').DataTable();
+            $('.dataTables_length select').select2({ minimumResultsForSearch: Infinity });
+
+            $("#ref_kategori_id").select2( {
+                theme: "bootstrap-5",
+                width: $( this ).data( 'width' ) ? $( this ).data( 'width' ) : $( this ).hasClass( 'w-100' ) ? '100%' : 'style',
+                placeholder: $( this ).data( 'placeholder' ),
+                allowClear: true
+            } );
+
+            $("#ref_sub_kategori_id").select2( {
+                theme: "bootstrap-5",
+                width: $( this ).data( 'width' ) ? $( this ).data( 'width' ) : $( this ).hasClass( 'w-100' ) ? '100%' : 'style',
+                placeholder: $( this ).data( 'placeholder' ),
+                allowClear: true
+            } );
+
+            $("#ref_kategori_id").on("change",function (){
+                $.ajax({
+                    url: URL+'/async-req/get-sub-kategori',
+                    method: "GET",
+                    data:{
+                        "id-kategori": $(this).val()
+                    },
+                    success: function (response){
+                        $("#ref_sub_kategori_id").html('<option>--- Pilih Sub Kategori ---</option>');
+                        $.each(response, function (key, value){
+                            $("#ref_sub_kategori_id").append("<option value='"+value.id+"'>"+value.nama_sub_kategori+"</option>")
+                        });
+                    }
+                });
+            });
+
+            $.ajax({
+                  url: URL+'/async-req/get-list-data',
+                  type: 'get',
+                  dataType: 'json',
+                  success:function(data) {
+                    console.log(data);
+                    var t = $('#datapost').DataTable({
+                        "bDestroy": true, 
+                        bJQueryUI: true,
+                        aaData: data,
+                        aoColumns: [
+                            { mData: 'id' ,"fnRender": function( oObj ) { return oObj.aData[3].id }},
+                            { mData: 'ref_sub_kategori.ref_kategori.nama_kategori' ,"fnRender": function( oObj ) { return oObj.aData[5].ref_sub_kategori.ref_kategori.nama_kategori }},
+                            { mData: 'ref_sub_kategori.nama_sub_kategori' ,"fnRender": function( oObj ) { return oObj.aData[3].ref_sub_kategori.nama_sub_kategori }},
+                            { mData: 'nama_data' ,"fnRender": function( oObj ) { return oObj.aData[3].nama_data }},                    
+                            { mData: 'ref_sumber_data.nama_sumber_data' ,"fnRender": function( oObj ) { return oObj.aData[3].ref_sumber_data.nama_sumber_data }},
+                            { mData: 'url_data',"mRender": function(data, type, full) {
+                              return '<a href="' + data + '" target="_blank"><i class="fa fa-download"></i> Download</a>';
+                            }},
+                            { mData: 'id',"mRender": function(data, type, full) {
+                              return '<a href="list-data/edit?id-data='+ data +'" class="btn btn-primary">Edit</a>';
+                            }}
+                                  ]
+
+                    });
+
+                    t.on( 'order.dt search.dt', function () {
+                        t.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+                            cell.innerHTML = i+1;
+                        });
+                    }).draw();
+
+                 }     
+              });
+
         } );
     </script>
+@else
+    <script>
+        var URL = window.location.origin;
+        $(document).ready(function() {
+            $('#datapost').DataTable();
+            $('.dataTables_length select').select2({ minimumResultsForSearch: Infinity });
+
+            $("#ref_kategori_id").select2( {
+                theme: "bootstrap-5",
+                width: $( this ).data( 'width' ) ? $( this ).data( 'width' ) : $( this ).hasClass( 'w-100' ) ? '100%' : 'style',
+                placeholder: $( this ).data( 'placeholder' ),
+                allowClear: true
+            } );
+
+            $("#ref_sub_kategori_id").select2( {
+                theme: "bootstrap-5",
+                width: $( this ).data( 'width' ) ? $( this ).data( 'width' ) : $( this ).hasClass( 'w-100' ) ? '100%' : 'style',
+                placeholder: $( this ).data( 'placeholder' ),
+                allowClear: true
+            } );
+
+            $("#ref_kategori_id").on("change",function (){
+                $.ajax({
+                    url: URL+'/async-req/get-sub-kategori',
+                    method: "GET",
+                    data:{
+                        "id-kategori": $(this).val()
+                    },
+                    success: function (response){
+                        $("#ref_sub_kategori_id").html('<option>--- Pilih Sub Kategori ---</option>');
+                        $.each(response, function (key, value){
+                            $("#ref_sub_kategori_id").append("<option value='"+value.id+"'>"+value.nama_sub_kategori+"</option>")
+                        });
+                    }
+                });
+            });
+
+            $.ajax({
+                  url: URL+'/async-req/get-list-data',
+                  type: 'get',
+                  dataType: 'json',
+                  success:function(data) {
+                    console.log(data);
+                    var t = $('#datapost').DataTable({
+                        "bDestroy": true, 
+                        bJQueryUI: true,
+                        aaData: data,
+                        aoColumns: [
+                            { mData: 'id' ,"fnRender": function( oObj ) { return oObj.aData[3].id }},
+                            { mData: 'ref_sub_kategori.ref_kategori.nama_kategori' ,"fnRender": function( oObj ) { return oObj.aData[5].ref_sub_kategori.ref_kategori.nama_kategori }},
+                            { mData: 'ref_sub_kategori.nama_sub_kategori' ,"fnRender": function( oObj ) { return oObj.aData[3].ref_sub_kategori.nama_sub_kategori }},
+                            { mData: 'nama_data' ,"fnRender": function( oObj ) { return oObj.aData[3].nama_data }},                    
+                            { mData: 'ref_sumber_data.nama_sumber_data' ,"fnRender": function( oObj ) { return oObj.aData[3].ref_sumber_data.nama_sumber_data }},
+                            { mData: 'url_data',"mRender": function(data, type, full) {
+                              return '<a href="' + data + '" target="_blank"><i class="fa fa-download"></i> Download</a>';
+                            }}
+                                  ]
+
+                    });
+
+                    t.on( 'order.dt search.dt', function () {
+                        t.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+                            cell.innerHTML = i+1;
+                        });
+                    }).draw();
+
+                 }     
+              });
+
+        } );
+    </script>
+@endif
 @endpush

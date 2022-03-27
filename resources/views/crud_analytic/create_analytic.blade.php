@@ -9,11 +9,11 @@
                     <div class="card-body">
                         <form method="POST" action="{{ route('analytic.store') }}" enctype="multipart/form-data">
                             @csrf
-                            <div class="form-group row">
-                                <label for="judul" class="col-md-4 col-form-label text-md-right">{{ __('Judul') }}</label>
+                            <div class="form-group row mb-3">
+                                <label for="judul" class="col-md-4 col-form-label text-md-end">{{ __('Judul *') }}</label>
                                 <div class="col-md-6">
                                     <input id="judul" type="text" class="form-control @error('judul') is-invalid @enderror"
-                                        name="judul" value="{{ old('judul') }}" autocomplete="judul" autofocus>
+                                        name="judul" value="{{ old('judul') }}" autocomplete="judul" autofocus data-bs-toggle="tooltip" data-bs-placement="top" title="Judul analisis">
                                     @error('judul')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -22,11 +22,11 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
+                            <div class="form-group row mb-3">
                                 <label for="Uraian"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Uraian') }}</label>
+                                    class="col-md-4 col-form-label text-md-end">{{ __('Uraian *') }}</label>
                                 <div class="col-md-6">
-                                    <textarea id="uraian" class="form-control @error('uraian') is-invalid @enderror" name="uraian" autofocus></textarea>
+                                    <textarea id="uraian" class="form-control @error('uraian') is-invalid @enderror" name="uraian" autofocus data-bs-toggle="tooltip" data-bs-placement="top" title="Deskripsi singkat analisis"></textarea>
                                     @error('uraian')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -35,9 +35,9 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
+                            <div class="form-group row mb-3">
                                 <label for="img_url"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Upload Gambar') }}</label>
+                                    class="col-md-4 col-form-label text-md-end">{{ __('Upload Gambar *') }}</label>
                                 <div class="col-md-6">
                                     <input id="img_url" type="file"
                                         class="form-control @error('img_url') is-invalid @enderror" name="img_url"
@@ -50,9 +50,9 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
+                            <div class="form-group row mb-3">
                                 <label for="file_url"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Upload File') }}</label>
+                                    class="col-md-4 col-form-label text-md-end">{{ __('Upload File *') }}</label>
                                 <div class="col-md-6">
                                     <input id="file_url" type="file"
                                         class="form-control @error('file_url') is-invalid @enderror" name="file_url"
@@ -65,13 +65,13 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
+                            <div class="form-group row mb-3">
                                 <label for="dashboard_url"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Link Dashboard') }}</label>
+                                    class="col-md-4 col-form-label text-md-end">{{ __('Link Dashboard') }}</label>
                                 <div class="col-md-6">
                                     <input id="dashboard_url" type="text"
                                         class="form-control @error('dashboard_url') is-invalid @enderror" name="dashboard_url"
-                                        value="{{ old('dashboard_url') }}" autocomplete="dashboard_url" autofocus>
+                                        value="{{ old('dashboard_url') }}" autocomplete="dashboard_url" autofocus data-bs-toggle="tooltip" data-bs-placement="top" title="Link dashboard dari aplikasi lain, misalnya Power BI atau Tableau">
                                     @error('dashboard_url')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>

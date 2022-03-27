@@ -1,19 +1,4 @@
 @extends('layouts.main')
-@push('styles')
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-@endpush
-
-@push('scripts')
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-        crossorigin="anonymous"></script>
-    <script src="https://code.highcharts.com/maps/highmaps.js"></script>
-    <script src="https://code.highcharts.com/mapdata/countries/id/id-all.js"></script>
-    <script type="text/javascript" src="https://code.highcharts.com/highcharts.js"></script>
-    <script type="text/javascript" src="https://code.highcharts.com/modules/data.js"></script>
-    <script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
-@endpush
 
 @section('content')
     <div class="container-fluid">
@@ -31,28 +16,26 @@
                         style="text-decoration: none; color: black;">
                         <div class="card mb-3 border-secondary border-3 text-center" style="border-radius: 15px">
                             <div class="card-body p-1">
-                                <img src="{{ asset('images/icon1.png') }}" class="card-img-top"
+                                <img src="{{ asset('images/icon2.png') }}" class="card-img-top"
                                     style="width: 5vw;height: 5vw;object-fit: cover;">
-                                <h6 class="m-0">Sosial dan</h6>
-                                <h6 class="m-0">Kependudukan</h6>
+                                <h6 class="m-0">Private Dataset</h6>
                             </div>
                         </div>
                     </a>
                 </div>
                 <div class="row">
-                    <a href="{{ route('list-data.index_kategori', ['id' => 3]) }}"
+                    <a href="{{ route('list-data.index_kategori', ['id' => 2]) }}"
                         style="text-decoration: none; color: black;">
                         <div class="card mb-3 border-secondary border-3 text-center" style="border-radius: 15px">
                             <div class="card-body p-1">
-                                <img src="{{ asset('images/icon2.png') }}" class="card-img-top"
+                                <img src="{{ asset('images/icon1.png') }}" class="card-img-top"
                                     style="width: 5vw;height: 5vw;object-fit: cover;">
-                                <h6 class="m-0">Ekonomi dan</h6>
-                                <h6 class="m-0">Perdagangan</h6>
+                                <h6 class="m-0">Public Dataset</h6>
                             </div>
                         </div>
                     </a>
                 </div>
-                <div class="row">
+                <!-- <div class="row">
                     <a href="{{ route('list-data.index_kategori', ['id' => 2]) }}"
                         style="text-decoration: none; color: black;">
                         <div class="card mb-3 border-secondary border-3 text-center" style="border-radius: 15px">
@@ -64,15 +47,15 @@
                             </div>
                         </div>
                     </a>
-                </div>
-                <div class="row">
+                </div> -->
+                <!-- <div class="row">
                     <div class="card px-3 py-2 mb-3 border-secondary border-3"
                         style="background-color: whitesmoke;border-radius: 10px">
                         <a href="{{ route('list-data.index') }}" style="text-decoration: none; color: black;">
                             <h6 class="m-0">GET ALL DATA</h6>
                         </a>
                     </div>
-                </div>
+                </div> -->
             </div>
             <div class="col mr-3">
                 <div class="row">
@@ -103,7 +86,9 @@
                             <div>
                                 <a href="{{ asset('storage' . $post->file_url) }}" style="text-decoration: none; color: mediumblue; margin-right: 50px;" target='_blank'>Read Report
                                 </a>
+                                @if($post->dashboard_url)
                                 <a href="{{ $post->dashboard_url }}" target='_blank' style="text-decoration: none; color: mediumblue;">View Dashboard</a>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -135,7 +120,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
+                <!-- <div class="row">
                     <div class="card p-1 mb-3 border-secondary border-3"
                         style="background-color: white;border-radius: 15px">
                         <div class="row">
@@ -149,7 +134,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <div class="row">
                     <div class="card px-3 py-2 mb-3 text-white bg-secondary text-center rounded-0">
                         <h4 class="m-0">ASK ME</h4>
@@ -166,12 +151,7 @@
     </div>
 @endsection
 
-@push('scripts')
-    <!-- Bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
-    </script>
-
+@push('js1')
     <script>
         var data1 = [
             ['id-ac', 16763469972136],

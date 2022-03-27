@@ -91,6 +91,8 @@ Route::name('async-req.')
     ->group(function(){
         Route::get('/get-sub-kategori',\App\Http\Controllers\AsyncRequest\SubKategori::class)
             ->name('get-sub-kategori');
+        Route::get('/get-list-data',\App\Http\Controllers\AsyncRequest\ListData::class)
+            ->name('get-list-data');
     });
 
 Route::group(['middleware' => 'auth:sanctum'], function() {
