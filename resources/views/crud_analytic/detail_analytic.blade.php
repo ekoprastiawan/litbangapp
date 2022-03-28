@@ -9,10 +9,14 @@
                     <p>Oleh: {{$analytic->userCreate->name}}</p>
                     <p>{{ Carbon\Carbon::parse($analytic->created_at)->format('d M Y') }}</p>
                     <p>{{$analytic->uraian}}</p>
-                    <p><a href='{{ asset('storage' . $analytic->file_url) }}'
-                                                target='_blank'>Read Report</a></p>
-                   <p> <a href="{{ $analytic->dashboard_url }}" target="_blank"><i
-                                                    class="fa fa-download"></i> View Dashboard</a></p>
+                    <p>
+                        <a href='{{ asset('storage' . $analytic->file_url) }}' target='_blank'>Read Report</a>
+                    </p>
+                    @if($analytic->dashboard_url)
+                    <p> 
+                        <a href="{{ $analytic->dashboard_url }}" target="_blank"><i class="fa fa-download"></i> View Dashboard</a>
+                    </p>
+                    @endif
                 </div>
             </div>
         </div>

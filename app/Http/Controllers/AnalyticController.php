@@ -20,7 +20,7 @@ class AnalyticController extends Controller
      */
     public function index()
     {
-        $data['analytic'] = TAnalytic::all();
+        $data['analytic'] = TAnalytic::with('userCreate')->orderBy('id', 'desc')->get();
         return view('crud_analytic.index_analytic',$data);
     }
 

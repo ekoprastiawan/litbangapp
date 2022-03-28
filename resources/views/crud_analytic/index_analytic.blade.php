@@ -19,8 +19,10 @@
                             @endif
                         </div>
                         <div class="d-flex flex-row-reverse">
+                            @if (Auth::check())
                             <a style="margin-bottom: 1em;" href="{{ route('analytic.create') }}"
                                 class="btn btn-primary btn-sm pull-right">Tambah Data</a>
+                            @endif
                         </div>
                         <div class="table-responsive-lg">
                                 {{ csrf_field() }}
@@ -32,7 +34,9 @@
                                     <th style="text-align: center;">Uraian</th>
                                     <th style="text-align: center;" width="10%">Report</th>
                                     <th style="text-align: center;" width="15%">Dashboard</th>
+                                    @if(Auth::check())
                                     <th width="5%"></th>
+                                    @endif
                                 </tr>
                             </thead>
                             <tbody>
@@ -55,11 +59,14 @@
                                                     class="fa fa-download"></i> View Dashboard</a>
                                             @endif
                                         </td>
-
-                                        <td>
+                                        @if(Auth::check())
+                                        <td>                                            
+                                            @if(Auth::guard('web')->user()->role_id == '2' || Auth::guard('web')->user()->role_id == '3' || (Auth::guard('web')->user()->role_id == '1' && $data->created_by == Auth::guard('web')->user()->niplama))
                                             <a href="{{ route('analytic.edit', ['id-data' => $data->id]) }}"
                                                 class="btn btn-primary">Edit</a>
+                                            @endif                                            
                                         </td>
+                                        @endif
 
                                     </tr>
                                 @endforeach

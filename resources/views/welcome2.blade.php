@@ -83,7 +83,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <p style="text-align:justify; line-height: 1.2;">{{ Carbon\Carbon::parse($post->created_at)->format('d M Y') }}. {{ \Illuminate\Support\Str::words($post->uraian, 50) }}</p>
+                            <p style="text-align:justify; line-height: 1.2;">{{ Carbon\Carbon::parse($post->created_at)->format('d M Y') }}. {{ \Illuminate\Support\Str::words($post->uraian, 50) }} <a href="{{ route('analytic.detail', ['id-data' => $post->id]) }}"> more</a></p>
                             <div>
                                 <a href="{{ asset('storage' . $post->file_url) }}" style="text-decoration: none; color: mediumblue; margin-right: 50px;" target='_blank'>Read Report
                                 </a>
