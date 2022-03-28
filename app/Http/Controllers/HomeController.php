@@ -32,7 +32,7 @@ class HomeController extends Controller
                         ->first();
         }
 
-        $data['analytic'] = TAnalytic::orderBy('id', 'desc')
+        $data['analytic'] = TAnalytic::with('userCreate')->orderBy('id', 'desc')
                         ->limit(2)
                         ->get();
 

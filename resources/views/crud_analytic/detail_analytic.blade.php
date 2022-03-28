@@ -6,6 +6,7 @@
             <div id="content">
                 <div class="container">
                     <h3>{{$analytic->judul}}</h3>
+                    <p>Oleh: {{$analytic->userCreate->name}}</p>
                     <p>{{ Carbon\Carbon::parse($analytic->created_at)->format('d M Y') }}</p>
                     <p>{{$analytic->uraian}}</p>
                     <p><a href='{{ asset('storage' . $analytic->file_url) }}'

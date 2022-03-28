@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Advis\TAnalytic;
 use Illuminate\Http\Request;
+use Auth;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreTAnalyticRequest;
 use App\Http\Requests\UpdateTAnalyticRequest;
@@ -26,7 +27,7 @@ class AnalyticController extends Controller
     public function detail(Request $request)
     {
         $idAnalytic = $request->get('id-data');
-        $data['analytic'] = TAnalytic::find($idAnalytic);
+        $data['analytic'] = TAnalytic::with('userCreate')->find($idAnalytic);
         return view('crud_analytic.detail_analytic', $data);
     }
 
@@ -77,6 +78,7 @@ class AnalyticController extends Controller
         }
         
         $analytic->dashboard_url = $request->post('dashboard_url');
+        $analytic->created_by = Auth::user()->niplama;
         $analytic->save();
 
         return redirect()->route('analytic.index')->with('success','Data telah tersimpan.');

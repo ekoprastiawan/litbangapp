@@ -69,4 +69,13 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Role::class,'role_id','id');
     }
+
+    /**
+     * Relasi ke TAnalytic.
+     */
+    public function tAnalyticCreate()
+    {
+        return $this->hasMany(TAnalytic::class,'niplama','created_by');
+    }
+
 }

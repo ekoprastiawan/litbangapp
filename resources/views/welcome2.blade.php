@@ -74,6 +74,7 @@
                             <div class="col-7" style="color: mediumblue;">
                                 <a href="{{ route('analytic.detail', ['id-data' => $post->id]) }}" style="text-decoration: none; color: mediumblue; margin-right: 50px;">
                                 <h5>{{$post->judul}}</h5>
+                                <p style="color: black;">Oleh: {{$post->userCreate->name}}</p>
                                 </a>
                             </div>
                             <div class="col-5">
@@ -141,8 +142,8 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="card p-3 mb-3 border-secondary border-3"
-                        style="background-color: whitesmoke;border-radius: 15px">
+                    <div class="card p-0 mb-3 border-secondary border-3"
+                        style="background-color: white;border-radius: 15px">
                         <a href="/askme" target='_blank' style="text-decoration: none; color: mediumblue;">
                             <div class="row justify-content-center align-items-center">
                                 <div class="col-3">
