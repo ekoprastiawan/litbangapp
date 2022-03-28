@@ -27,8 +27,6 @@
     <meta property="og:image:width" content="150">
     <meta property="og:image:height" content="150">
 
-
-
     <title>ADVIS - Analisis Data dan Visualisasi</title>
 
     <!-- Bootstrap CSS -->
@@ -57,7 +55,7 @@
     </nav>
 
     <header class="mb-4" style="background-color: #92d18d;">
-        <div class="container d-flex flex-wrap justify-content-center align-items-center">
+        <div class="container d-flex flex-wrap justify-content-between align-items-center">
             <a href="/" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none">
                 <img class="logo" style="background-color: white;" height="70px"
                     src="{{ asset('images/advis.png') }}">
@@ -67,9 +65,44 @@
                     <h2 style="text-align: center; letter-spacing: 5px; color: white;">ANALISIS DATA DAN VISUALISASI</h2>
                 </a>
             </div>
-            <div class="col-xs-1 col-lg-1">
+            <div class="ml-3 relative">
                 @if(auth('sanctum')->check() == 'true')
-                    <a class="btn btn-default d-lg-inline-block" href="{{ route('logout') }}" style="background-color: #ffffff">Logout</a>
+                    <!-- <a class="btn btn-default d-lg-inline-block" href="{{ route('logout') }}" style="background-color: #ffffff">Logout</a> -->
+                    <button class="btn btn-default d-lg-inline-block" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" style="background-color: #ffffff">{{Auth::user()->name}}</button>
+
+                    <div class="offcanvas offcanvas-end w-auto" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+                      <div class="offcanvas-header">
+                        <h5 id="offcanvasRightLabel"></h5>
+                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                      </div>
+                      <div class="offcanvas-body">
+                        <div class="list-group">
+                          <a href="{{ route('profile.show') }}" class="list-group-item list-group-item-action">
+                                {{ __('Ubah Profil') }}
+                          </a>
+
+                          @if(Auth::user()->role_id == '2' || Auth::user()->role_id == '3' )
+
+                          <a href="#" class="list-group-item list-group-item-action" id="dropdownMenuButton" data-bs-toggle="dropdown">Tambah/Ubah Referensi</a>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <li><a class="dropdown-item" href="#">Kategori</a></li>
+                                    <li><a class="dropdown-item" href="#">Sub Kategori</a></li>
+                                    <li><a class="dropdown-item" href="#">Sumber Data</a></li>
+                                </ul>
+
+                          @endif
+
+                          @if(Auth::user()->role_id == '3' )
+                          <a href="#" class="list-group-item list-group-item-action">User Role Management</a>
+                          @endif
+
+                          <a href="{{ route('logout') }}" class="list-group-item list-group-item-action" onclick="event.preventDefault(); document.getElementById('logoutForm').submit();"><i class="icon ion-forward"></i> Logout</a>
+                            <form action="{{ route('logout') }}" method="post" id="logoutForm" style="display:none">
+                                {{ csrf_field() }}
+                            </form>
+                        </div>
+                      </div>
+                    </div>
                 @else
                     <a class="btn btn-default d-lg-inline-block" href="{{ route('login') }}" style="background-color: #ffffff">Login</a>
                 @endif

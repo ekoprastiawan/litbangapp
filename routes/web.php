@@ -98,3 +98,7 @@ Route::name('async-req.')
 Route::group(['middleware' => 'auth:sanctum'], function() {
     Route::get('logout', [\App\Http\Controllers\AuthController::class, 'logout']);
 });
+
+Route::middleware(['auth:sanctum','verified'])->get('/dashboard',function (){
+    return view('dashboard');
+})->name('dashboard');

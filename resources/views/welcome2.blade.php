@@ -71,13 +71,13 @@
                     <div class="card p-2 mb-3 border-secondary border-3"
                         style="background-color: whitesmoke;border-radius: 15px">
                         <div class="row align-items-center mb-2">
-                            <div class="col-7" style="color: mediumblue;">
+                            <div class="col-md-7" style="color: mediumblue;">
                                 <a href="{{ route('analytic.detail', ['id-data' => $post->id]) }}" style="text-decoration: none; color: mediumblue; margin-right: 50px;">
                                 <h5>{{$post->judul}}</h5>
                                 <p style="color: black;">Oleh: {{$post->userCreate->name}}</p>
                                 </a>
                             </div>
-                            <div class="col-5">
+                            <div class="col-md-5">
                                 <img src="/public/storage{{ ($post->img_url) }}"
                                     style="width: 100%;height: 8vw;object-fit: contain;">
                             </div>
@@ -146,11 +146,11 @@
                         style="background-color: white;border-radius: 15px">
                         <a href="/askme" target='_blank' style="text-decoration: none; color: mediumblue;">
                             <div class="row justify-content-center align-items-center">
-                                <div class="col-3">
+                                <div class="col-4">
                                     <img src="{{ asset('images/icon4.jpg') }}" class="rounded float-end"
                                     style="width: 5vw;height: 5vw;object-fit: cover;">
                                 </div>
-                                <div class="col-3">
+                                <div class="col-4">
                                     <h5>Konsultasi</h5>
                                 </div>
                             </div>
