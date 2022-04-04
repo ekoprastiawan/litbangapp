@@ -115,8 +115,11 @@
                         style="background-color: white;border-radius: 15px">
                         <div class="row">
                             <div class="col-12">
-                                <div id="container1" class="m-0"
-                                    style="height: 285px; min-width: 400px; max-width: 800px; margin: 0 auto;"></div>
+                                <!-- <div id="container1" class="m-0"
+                                    style="height: 285px; min-width: 400px; max-width: 800px; margin: 0 auto;"></div> -->
+                                <a href="#" id="pop" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <img id="imageresource" src="{{ asset('images/bali.png') }}" style="height: 285px; min-width: 400px; max-width: 800px; margin: 0 auto;">
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -160,6 +163,25 @@
             </div>
         </div>
     </div>
+
+
+        <!-- Creates the bootstrap modal where the image will appear -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <img src="{{ asset('images/bali.png') }}" id="imagepreview" style="height: 600px; min-width: 1028px; max-width: 1380px; margin: 0 auto;">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
 @endsection
 
 @push('js1')
@@ -266,7 +288,7 @@
                     }
                 }
             });
-          
+
         });
     </script>
 @endpush
