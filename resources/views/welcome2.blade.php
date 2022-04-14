@@ -115,30 +115,11 @@
                         style="background-color: white;border-radius: 15px">
                         <div class="row">
                             <div class="col-12">
-                                <!-- <div id="container1" class="m-0"
-                                    style="height: 285px; min-width: 400px; max-width: 800px; margin: 0 auto;"></div> -->
-                                <a href="#" id="pop" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    <img id="imageresource" src="{{ asset('images/bali.png') }}" style="height: 285px; min-width: 400px; max-width: 800px; margin: 0 auto;">
-                                </a>
+                                <iframe width="600" height="400" src="{{$visual->file_url}}" frameborder="0" style="border:0" allowfullscreen></iframe>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- <div class="row">
-                    <div class="card p-1 mb-3 border-secondary border-3"
-                        style="background-color: white;border-radius: 15px">
-                        <div class="row">
-                            <div class="col-12">
-                                <input type="hidden" id="link_id" name="link_id" value="{{ $visual->file_url }}" readonly />
-                                <input type="hidden" id="judul" name="judul" value="{{ $visual->judul }}" readonly />
-                                <input type="hidden" id="label" name="label" value="{{ $visual->label }}" readonly />
-                                <input type="hidden" id="tipe" name="tipe" value="{{ $visual->refJenisVisual->tipe }}" readonly />
-                                <div id="container2" class="m-0"
-                                    style="height: 255px; min-width: 400px; max-width: 800px; margin: 0 auto;"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
                 <div class="row">
                     <div class="card px-3 py-2 mb-3 text-white bg-secondary text-center rounded-0">
                         <h4 class="m-0">ASK ME</h4>
@@ -163,132 +144,7 @@
             </div>
         </div>
     </div>
-
-
-        <!-- Creates the bootstrap modal where the image will appear -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-fullscreen">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <img src="{{ asset('images/bali.png') }}" id="imagepreview" style="height: 600px; min-width: 1028px; max-width: 1380px; margin: 0 auto;">
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
     
 @endsection
 
-@push('js1')
-    <script>
-        var data1 = [
-            ['id-ac', 16763469972136],
-            ['id-su', 13749499451958],
-            ['id-sb', 6780124354738],
-            ['id-ri', 9132748802329],
-            ['id-ja', 4516148844341],
-            ['id-sl', 10729096013693],
-            ['id-be', 3052194137387],
-            ['id-1024', 7480925281643],
-            ['id-jk', 72967009600455],
-            ['id-jr', 44615065661799],
-            ['id-jt', 27190833343000],
-            ['id-yo', 6091572432696],
-            ['id-ji', 33008197503339],
-            ['id-kb', 7035492541090],
-            ['id-kt', 4889696415086],
-            ['id-ks', 5526165272537],
-            ['id-ki', 11616186000000],
-            ['id-sw', 4087615938923],
-            ['id-st', 4297164739359],
-            ['id-se', 12046405712940],
-            ['id-sg', 5235191610164],
-            ['id-ba', 8537890262352],
-            ['id-nb', 5528931855427],
-            ['id-nt', 7584929735729],
-            ['id-ma', 4015217740467],
-            ['id-pa', 15758964362330],
-            ['id-la', 3335957359387],
-            ['id-bt', 15948254311169],
-            ['id-bb', 3108627167849],
-            ['id-go', 1912519212778],
-            ['id-kr', 3986942728300],
-            ['id-ib', 7744110211743],
-            ['id-sr', 2062542227645],
-            ['id-ku', 2364056627000]
-        ];
 
-        // Create the chart
-        Highcharts.mapChart('container1', {
-            chart: {
-                map: 'countries/id/id-all'
-            },
-
-            title: {
-                text: 'Anggaran Belanja Pemerintah Provinsi Tahun 2021',
-                style: {
-                    fontSize: '12px'
-                }
-            },
-
-            mapNavigation: {
-                enabled: true,
-                buttonOptions: {
-                    verticalAlign: 'bottom'
-                }
-            },
-
-            colorAxis: {
-                min: 0
-            },
-
-            series: [{
-                data: data1,
-                name: 'Anggaran Belanja',
-                states: {
-                    hover: {
-                        color: '#BADA55'
-                    }
-                },
-                dataLabels: {
-                    enabled: false,
-                    format: '${value:,.0f}'
-                }
-            }]
-        });
-
-        $(document).ready(function() {
-
-            var link = document.getElementById("link_id").value;
-            var judul = document.getElementById("judul").value;
-            var label = document.getElementById("label").value;
-            var tipe = document.getElementById("tipe").value;
-            var URL = window.location.origin;
-
-
-            Highcharts.chart('container2', {
-                chart: {
-                    type: tipe
-                },
-                data: {
-
-                    csvURL: URL + '/storage' + link
-                },
-                title: {
-                    text: judul
-                },
-                yAxis: {
-                    title: {
-                        text: label
-                    }
-                }
-            });
-
-        });
-    </script>
-@endpush

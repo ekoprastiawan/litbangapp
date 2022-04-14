@@ -27,7 +27,6 @@
                                 <tr>
                                     <th style="text-align: center;" width="5%">No</th>
                                     <th style="text-align: center;">Judul</th>
-                                    <th style="text-align: center;">Jenis Visual</th>
                                     <th style="text-align: center;">Tampil</th>
                                     <th width="5%"></th>
                                 </tr>
@@ -38,7 +37,6 @@
                                     <tr>
                                         <td>{{$loop->iteration}}</td>
                                         <td>{{$data->judul}}</td>
-                                        <td style="text-align: center;">{{$data->refJenisVisual->nama_jenis_visual}}</td>
                                         <td style="text-align: center;">{{($data->pilih_visual == 1) ? 'Ya' : 'Tidak'}}</td>
                                         <td>
                                             <a href="{{ route('visual.edit',['id-data'=>$data->id])}}" class="btn btn-primary">Edit</a>

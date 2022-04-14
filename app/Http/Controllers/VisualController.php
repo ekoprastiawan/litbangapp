@@ -30,9 +30,9 @@ class VisualController extends Controller
      */
     public function create()
     {
-        $data['ref_jenis_visual'] = RefJenisVisual::all();
+        
 
-        return view('crud_visual.create_visual', $data);
+        return view('crud_visual.create_visual');
     }
 
     /**
@@ -45,19 +45,7 @@ class VisualController extends Controller
     {
         $visual = new TVisual();
         $visual->judul = $request->post('judul');
-        $visual->label = $request->post('label');
-
-        if(!empty($request->file('file_url')))
-        {
-            $extension = $request->file('file_url')->getClientOriginalExtension();
-            $filenameVisual = sha1(time().time()).".".$extension;
-            $tujuanUpload = 'public/visual';
-            $uploadFile = $request->file('file_url')->storeAs($tujuanUpload, $filenameVisual);
-            $linkFile = str_replace('public','',$uploadFile);
-            $visual->file_url = $linkFile;
-        }
-
-        $visual->ref_jenis_visual_id = $request->post('ref_jenis_visual_id');
+        $visual->file_url = $request->post('file_url');
         $visual->pilih_visual = $request->post('pilih_visual');
         $visual->save();
 
@@ -85,7 +73,6 @@ class VisualController extends Controller
     {
         $idVisual = $request->get('id-data');
         $data['visual'] = TVisual::with(['refJenisVisual'])->find($idVisual);
-        $data['ref_jenis_visual'] = RefJenisVisual::all();
 
         return view('crud_visual.edit_visual', $data);
     }
@@ -102,24 +89,7 @@ class VisualController extends Controller
         $idVisual = $request->post('id');
         $visual = TVisual::find($idVisual);
         $visual->judul = $request->post('judul');
-        $visual->label = $request->post('label');
-
-        if(!empty($request->file('file_url')))
-        {
-            $fileExist = $visual->file_url;
-            $linkExist = 'public'.$fileExist;
-            if (Storage::exists($linkExist)) {
-                Storage::delete($linkExist);
-            }
-            $extension = $request->file('file_url')->getClientOriginalExtension();
-            $filenameVisual = sha1(time().time()).".".$extension;
-            $tujuanUpload = 'public/visual';
-            $uploadFile = $request->file('file_url')->storeAs($tujuanUpload, $filenameVisual);
-            $linkFile = str_replace('public','',$uploadFile);
-            $visual->file_url = $linkFile;
-        }
-
-        $visual->ref_jenis_visual_id = $request->post('ref_jenis_visual_id');
+        $visual->file_url = $request->post('file_url');
         $visual->pilih_visual = $request->post('pilih_visual');
         $visual->save();
 

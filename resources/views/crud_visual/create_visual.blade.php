@@ -22,40 +22,12 @@
                             </div>
 
                             <div class="form-group row mb-3">
-                                <label for="label" class="col-md-4 col-form-label text-md-end">{{ __('Label *') }}</label>
+                                <label for="file_url" class="col-md-4 col-form-label text-md-end">{{ __('Embed URL *') }}</label>
                                 <div class="col-md-6">
-                                    <input id="label" type="text" class="form-control @error('label') is-invalid @enderror" name="label" value="{{ old('label') }}" autocomplete="label" autofocus>
-                                    @error('label')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <div class="form-group row mb-3">
-                                <label for="file_url" class="col-md-4 col-form-label text-md-end">{{ __('File Data *') }}</label>
-                                <div class="col-md-6">
-                                    <input id="file_url" type="file" class="form-control @error('file_url') is-invalid @enderror" name="file_url" value="{{ old('file_url') }}" autocomplete="file_url" autofocus>
+                                    <input id="file_url" type="text" class="form-control @error('file_url') is-invalid @enderror" name="file_url" value="{{ old('file_url') }}" autocomplete="file_url" autofocus>
                                     @error('file_url')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <div class="form-group row mb-3">
-                                <label for="ref_jenis_visual_id" class="col-md-4 col-form-label text-md-end">{{ __('Jenis Visualisasi *') }}</label>
-                                <div class="col-md-6">
-                                    <select name="ref_jenis_visual_id" class="form-control @error('ref_jenis_visual_id') is-invalid @enderror" id="ref_jenis_visual_id" autocomplete="ref_jenis_visual_id" autofocus>
-                                        @foreach($ref_jenis_visual as $jenis)
-                                            <option value="{{$jenis->id}}" {{ old('ref_jenis_visual_id') == $jenis->id ? 'selected' : '' }}>{{$jenis->nama_jenis_visual}}</option>
-                                        @endforeach
-                                    </select>
-                                    @error('ref_jenis_visual_id')
-                                    <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
                                     </span>
                                     @enderror
                                 </div>

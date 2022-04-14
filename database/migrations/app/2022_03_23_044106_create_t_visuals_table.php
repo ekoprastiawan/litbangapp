@@ -16,9 +16,7 @@ class CreateTVisualsTable extends Migration
         Schema::connection('mysql')->create('t_visuals', function (Blueprint $table) {
             $table->id();
             $table->string('judul');
-            $table->string('label');
             $table->string('file_url');
-            $table->integer('ref_jenis_visual_id');
             $table->tinyInteger('pilih_visual')->default(0);
             $table->string('updated_by')->nullable();
             $table->timestamps();
