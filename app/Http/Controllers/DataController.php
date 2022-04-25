@@ -43,7 +43,7 @@ class DataController extends Controller
 
     public function store(Create $request)
     {
-        $listData = new TListData();
+        $listData = new TListData();        
         $listData->ref_sub_kategori_id = $request->post('ref_sub_kategori_id');
         $listData->ref_sumber_data_id = $request->post('ref_sumber_data_id');
         $listData->nama_data = $request->post('nama_data');
@@ -52,7 +52,9 @@ class DataController extends Controller
         $listData->updated_by = '';
         $listData->save();
 
-        return redirect()->route('list-data.index')->with('success','Berhasil Tersimpan!');
+        $kategori = $request->post('ref_kategori_id');
+
+        return redirect()->route('list-data.index_kategori', ['id' => $kategori])->with('success','Berhasil Tersimpan!');
     }
 
     public function edit(Request $request)
@@ -75,7 +77,9 @@ class DataController extends Controller
         $listData->url_data = $request->post('url_data');
         $listData->save();
 
-        return redirect()->route('list-data.index')->with('success', 'Berhasil Diupdate!');
+        $kategori = $request->post('ref_kategori_id');
+
+        return redirect()->route('list-data.index_kategori', ['id' => $kategori])->with('success', 'Berhasil Diupdate!');
     }
 
 
