@@ -18,7 +18,7 @@
                             <div class="card-body p-1">
                                 <img src="{{ asset('images/icon2.png') }}" class="card-img-top"
                                     style="width: 5vw;height: 5vw;object-fit: cover;">
-                                <h6 class="m-0">Private Dataset</h6>
+                                <h6 class="m-0">Private Data</h6>
                             </div>
                         </div>
                     </a>
@@ -30,7 +30,19 @@
                             <div class="card-body p-1">
                                 <img src="{{ asset('images/icon1.png') }}" class="card-img-top"
                                     style="width: 5vw;height: 5vw;object-fit: cover;">
-                                <h6 class="m-0">Public Dataset</h6>
+                                <h6 class="m-0">Public Data</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="row">
+                    <a href="{{ route('list-data.index_kategori', ['id' => 3]) }}"
+                        style="text-decoration: none; color: black;">
+                        <div class="card mb-3 border-secondary border-3 text-center" style="border-radius: 15px">
+                            <div class="card-body p-1">
+                                <img src="{{ asset('images/icon5.png') }}" class="card-img-top"
+                                    style="width: 5vw;height: 5vw;object-fit: cover;">
+                                <h6 class="m-0">Dataset</h6>
                             </div>
                         </div>
                     </a>
