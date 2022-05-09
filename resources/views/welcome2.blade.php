@@ -18,7 +18,7 @@
                             <div class="card-body p-1">
                                 <img src="{{ asset('images/icon2.png') }}" class="card-img-top"
                                     style="width: 5vw;height: 5vw;object-fit: cover;">
-                                <h6 class="m-0">Private Data</h6>
+                                <h6 class="m-0">Data Internal</h6>
                             </div>
                         </div>
                     </a>
@@ -30,7 +30,7 @@
                             <div class="card-body p-1">
                                 <img src="{{ asset('images/icon1.png') }}" class="card-img-top"
                                     style="width: 5vw;height: 5vw;object-fit: cover;">
-                                <h6 class="m-0">Public Data</h6>
+                                <h6 class="m-0">Data Eksternal</h6>
                             </div>
                         </div>
                     </a>
