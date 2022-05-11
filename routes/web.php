@@ -76,10 +76,16 @@ Route::name('visual.')
             ->name('index');
         Route::get('/detail', [\App\Http\Controllers\AnalyticController::class, 'detail'])
             ->name('detail');
+        Route::get('/trash', [\App\Http\Controllers\AnalyticController::class, 'trash'])
+        ->name('trash');
         Route::get('/create', [\App\Http\Controllers\AnalyticController::class, 'create'])
             ->name('create');
         Route::get('/edit', [\App\Http\Controllers\AnalyticController::class, 'edit'])
             ->name('edit');
+        Route::post('/delete', [\App\Http\Controllers\AnalyticController::class, 'delete'])
+            ->name('delete');
+        Route::post('/restore', [\App\Http\Controllers\AnalyticController::class, 'restore'])
+            ->name('restore');
         Route::post('/store', [\App\Http\Controllers\AnalyticController::class, 'store'])
             ->name('store');
         Route::post('/update', [\App\Http\Controllers\AnalyticController::class, 'update'])

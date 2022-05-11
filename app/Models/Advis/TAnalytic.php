@@ -15,6 +15,8 @@ class TAnalytic extends Model
 
     protected $connection = 'mysql';
 
+    protected $dates = ['deleted_at'];
+
     /**
      * The attributes that are mass assignable.
      *

@@ -24,6 +24,12 @@ class AnalyticController extends Controller
         return view('crud_analytic.index_analytic',$data);
     }
 
+    public function trash()
+    {
+        $data['analytic'] = TAnalytic::with('userCreate')->orderBy('id', 'desc')->onlyTrashed()->get();
+        return view('crud_analytic.trash_analytic',$data);
+    }
+
     public function detail(Request $request)
     {
         $idAnalytic = $request->get('id-data');
@@ -145,6 +151,36 @@ class AnalyticController extends Controller
         $analytic->save();
 
         return redirect()->route('analytic.index')->with('success','Data telah diubah.');
+    }
+
+    /**
+     * Hapus sementara.
+     *
+     * @param  \App\Models\Advis\TAnalytic  $tAnalytic
+     * @return \Illuminate\Http\Response
+     */
+    public function delete(Request $request)
+    {
+        $idAnalytic = $request->get('id-data');
+        $data = TAnalytic::find($idAnalytic);
+        $data->delete();
+
+        return redirect()->route('analytic.index')->with('success','Data telah dihapus.');
+    }
+
+    /**
+     * Mengembalikan data yang dihapus sementara.
+     *
+     * @param  \App\Models\Advis\TAnalytic  $tAnalytic
+     * @return \Illuminate\Http\Response
+     */
+    public function restore(Request $request)
+    {
+        $idAnalytic = $request->get('id-data');
+        $data = TAnalytic::onlyTrashed()->where('id',$idAnalytic);
+        $data->restore();
+
+        return redirect()->route('analytic.trash')->with('success','Data telah dikembalikan.');
     }
 }
 ?>

@@ -20,14 +20,9 @@
                         </div>
                         <div class="d-flex flex-row-reverse">
                             @if(Auth::guard('web')->user()->role_id == '2' || Auth::guard('web')->user()->role_id == '3')
-                            <a style="margin-bottom: 1em; margin-left: 1em;" href="{{ route('analytic.trash') }}"
-                                class="btn btn-success btn-sm pull-right"> Kembalikan Data</a>
-                            @endif
-
-                            @if (Auth::check())
-                            <a style="margin-bottom: 1em;" href="{{ route('analytic.create') }}"
-                                class="btn btn-primary btn-sm pull-right"> Tambah Data</a>
-                            @endif                            
+                            <a style="margin-bottom: 1em; margin-left: 1em;" href="{{ route('analytic.index') }}"
+                                class="btn btn-success btn-sm pull-right"> List Data</a>
+                            @endif                          
                         </div>
                         <div class="table-responsive-lg">
                                 {{ csrf_field() }}
@@ -77,9 +72,9 @@
                                         @endif
                                         @if(Auth::guard('web')->user()->role_id == '2' || Auth::guard('web')->user()->role_id == '3')
                                         <td>
-                                            <form method="POST" action="{{ route('analytic.delete', ['id-data' => $data->id]) }}">
+                                            <form method="POST" action="{{ route('analytic.restore', ['id-data' => $data->id]) }}">
                                                 {{ csrf_field() }}
-                                                <button type="submit" class="btn btn-danger btn-xs" onclick="return confirm('Yakin akan menghapus data ini?')"> Hapus</button>
+                                                <button type="submit" class="btn btn-success btn-xs" onclick="return confirm('Yakin akan mengembalikan data ini?')"> Kembalikan</button>
                                             </form>
                                         </td>
                                         @endif
