@@ -59,7 +59,7 @@
                                 <div class="col-md-6">
                                     <select name="ref_sumber_data_id" class="form-control" id="ref_sumber_data_id" autofocus>
                                         @foreach($listSumberData as $sumberData)
-                                            <option value="{{$sumberData->id}}" @if($sumberData->id === $dataList->ref_sumber_data_id) selected @endif>{{$sumberData->nama_sumber_data}}</option>
+                                            <option value="{{$sumberData->id}}" @if($sumberData->id === $dataList2->refSumberData->id) selected @endif>{{$sumberData->nama_sumber_data}}</option>
                                         @endforeach
                                     </select>
                                 </div>

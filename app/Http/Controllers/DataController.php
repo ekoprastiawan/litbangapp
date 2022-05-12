@@ -61,6 +61,7 @@ class DataController extends Controller
     {
         $idData = $request->get('id-data');
         $data['dataList'] = TListData::with(['refSubKategori','refSubKategori.refKategori'])->find($idData);
+        $data['dataList2'] = TListData::with(['refSumberData'])->find($idData);        
         $data['listKategori'] = RefKategori::all();
         $data['listSubKategori'] = RefSubKategori::all();
         $data['listSumberData'] = RefSumberData::all();
