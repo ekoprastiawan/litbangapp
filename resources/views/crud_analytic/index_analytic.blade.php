@@ -40,6 +40,7 @@
                                     <th style="text-align: center;">Uraian</th>
                                     <th style="text-align: center;" width="10%">Report</th>
                                     <th style="text-align: center;" width="15%">Dashboard</th>
+                                    <th style="text-align: center;" width="10%">Nama Kontributor</th>
                                     @if(Auth::check())
                                     <th width="5%"></th>
                                     
@@ -69,6 +70,7 @@
                                                     class="fa fa-download"></i> View Dashboard</a>
                                             @endif
                                         </td>
+                                        <td>{{ $data->userCreate->name }}</td>
                                         @if(Auth::check())
                                         <td>                                            
                                             @if(Auth::guard('web')->user()->role_id == '2' || Auth::guard('web')->user()->role_id == '3' || (Auth::guard('web')->user()->role_id == '1' && $data->created_by == Auth::guard('web')->user()->niplama))

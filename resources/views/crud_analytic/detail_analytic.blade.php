@@ -7,17 +7,23 @@
                 <div class="container">
                     <div class="card mb-3" style="max-width: 1280px;">
                         <div class="row g-0">
-                            <div class="col-md-3">
-                                <div class="card-body">
-                                    <img src="/public/storage{{$analytic->img_url}}" class="img-fluid rounded-start">
-                                </div>
-                            </div>
                             <div class="col-md-9">
                                 <div class="card-body">
                                     <h3>{{$analytic->judul}}</h3>
                                     <p>Oleh: {{$analytic->userCreate->name}}</p>
                                     <p>{{ Carbon\Carbon::parse($analytic->created_at)->format('d M Y') }}</p>
-                                    <p>{{$analytic->uraian}}</p>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card-body">
+                                    <img src="/public/storage{{$analytic->img_url}}" class="img-fluid rounded-start">
+                                </div>
+                            </div>                            
+                        </div>
+                        <div class="row g-0">
+                            <div class="col-md-12">
+                                <div class="card-body">
+                                    <p style="text-align:justify">{{$analytic->uraian}}</p>
                                     <p>
                                         <a href='{{ asset('storage' . $analytic->file_url) }}' target='_blank'>Read Report</a>
                                     </p>
