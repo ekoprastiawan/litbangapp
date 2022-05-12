@@ -127,7 +127,7 @@
                         style="background-color: white;border-radius: 15px">
                         <div class="row">
                             <div class="col-12">
-                                <iframe width="600" height="400" src="{{$visual->file_url}}" frameborder="0" style="border:0" allowfullscreen></iframe>
+                                <iframe src="{{$visual->file_url}}" frameborder="0" style="border:0; min-height: 48vh; width: 100%;" allowfullscreen></iframe>
                             </div>
                         </div>
                     </div>
