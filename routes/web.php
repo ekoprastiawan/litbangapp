@@ -52,6 +52,15 @@ Route::name('list-data.')
     });
 
 
+Route::name('admin.')
+    ->prefix('admin')
+    ->middleware(['auth:sanctum', 'verified'])
+    ->group(function(){
+        Route::get('/loguser',[\App\Http\Controllers\UserController::class,'loguser'])
+            ->name('loguser');
+    });
+
+
 Route::name('visual.')
     ->prefix('visual')
     ->middleware(['auth:sanctum', 'verified', 'visual-data'])

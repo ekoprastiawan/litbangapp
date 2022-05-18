@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Advis\LogSession;
 
 class User extends Authenticatable
 {
@@ -76,6 +77,14 @@ class User extends Authenticatable
     public function tAnalyticCreate()
     {
         return $this->hasMany(TAnalytic::class,'niplama','created_by');
+    }
+
+    /**
+     * Relasi ke LogSession.
+     */
+    public function logUser()
+    {
+        return $this->hasMany(LogSession::class,'user_id','id');
     }
 
 }

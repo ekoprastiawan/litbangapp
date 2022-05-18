@@ -83,6 +83,10 @@
 
                           @if(Auth::user()->role_id == '2' || Auth::user()->role_id == '3' )
 
+                          <a href="{{ route('admin.loguser') }}" class="list-group-item list-group-item-action">
+                                {{ __('Daftar Pengguna') }}
+                          </a>
+
                           <a href="#" class="list-group-item list-group-item-action" id="dropdownMenuButton" data-bs-toggle="dropdown">Tambah/Ubah Referensi</a>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <li><a class="dropdown-item" href="#">Kategori</a></li>
