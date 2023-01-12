@@ -10,7 +10,9 @@
                             <div class="col-md-9">
                                 <div class="card-body">
                                     <h3>{{$analytic->judul}}</h3>
+                                    @if(!empty($analytic->userCreate->name))
                                     <p>Oleh: {{$analytic->userCreate->name}}</p>
+                                    @endif
                                     <p>{{ Carbon\Carbon::parse($analytic->created_at)->format('d M Y') }}</p>
                                 </div>
                             </div>

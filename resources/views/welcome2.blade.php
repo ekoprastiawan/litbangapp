@@ -86,7 +86,9 @@
                             <div class="col-md-7" style="color: mediumblue;">
                                 <a href="{{ route('analytic.detail', ['id-data' => $post->id]) }}" style="text-decoration: none; color: mediumblue; margin-right: 50px;">
                                 <h5>{{$post->judul}}</h5>
+                                @if(!empty($post->userCreate->name))
                                 <p style="color: black;">Oleh: {{$post->userCreate->name}}</p>
+                                @endif
                                 </a>
                             </div>
                             <div class="col-md-5">
@@ -117,7 +119,7 @@
             <div class="col-lg-5 mx-3">
                 <div class="row">
                     <div class="card px-3 py-2 mb-3 text-white bg-secondary text-center rounded-0">
-                        <a href="{{ route('visual.index') }}" style="text-decoration: none; color: white;">
+                        <a href="{{ route('visual.index2') }}" style="text-decoration: none; color: white;">
                             <h4 class="m-0">INDONESIA SUPERVISORY DATA TODAY</h4>
                         </a>
                     </div>

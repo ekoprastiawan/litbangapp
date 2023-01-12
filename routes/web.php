@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApiBps;
+use App\Http\Controllers\ApiTorn;
 use App\Http\Controllers\HomeController;
 
 /*
@@ -27,6 +28,10 @@ Route::get('/turth', [ApiBps::class, 'turth']);
 Route::get('/turvar', [ApiBps::class, 'turvar']);
 Route::get('/th', [ApiBps::class, 'th']);
 Route::get('/unit', [ApiBps::class, 'unit']);
+
+Route::get('/torn', [ApiTorn::class, 'index']);
+Route::get('/sima', [ApiTorn::class, 'sima']);
+Route::get('/simalogin', [ApiTorn::class, 'simalogin']);
 
 
 
@@ -76,6 +81,8 @@ Route::name('visual.')
             ->name('store');
         Route::post('/update',[\App\Http\Controllers\VisualController::class,'update'])
             ->name('update');
+
+        Route::get('/mockup',[\App\Http\Controllers\MockupController::class,'bagipagu'])->name('index2');
     });
 
     Route::name('analytic.')
@@ -110,10 +117,10 @@ Route::name('async-req.')
             ->name('get-list-data');
     });
 
+Route::post('/login', [\App\Http\Controllers\AuthController::class, 'login']);
+
 Route::group(['middleware' => 'auth:sanctum'], function() {
     Route::get('logout', [\App\Http\Controllers\AuthController::class, 'logout']);
 });
 
-Route::middleware(['auth:sanctum','verified'])->get('/dashboard',function (){
-    return view('dashboard');
-})->name('dashboard');
+Route::middleware(['auth:sanctum','verified'])->get('/dashboard',[HomeController::class, 'index'])->name('dashboard');
