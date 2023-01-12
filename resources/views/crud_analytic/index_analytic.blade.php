@@ -70,7 +70,7 @@
                                                     class="fa fa-download"></i> View Dashboard</a>
                                             @endif
                                         </td>
-                                        <td>{{ !empty($data->userCreate->name) ? $data->userCreate->name :''  }}</td>
+                                        <td>{{ $data->userCreate->name }}</td>
                                         @if(Auth::check())
                                         <td>                                            
                                             @if(Auth::guard('web')->user()->role_id == '2' || Auth::guard('web')->user()->role_id == '3' || (Auth::guard('web')->user()->role_id == '1' && $data->created_by == Auth::guard('web')->user()->niplama))
