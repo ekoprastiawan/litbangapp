@@ -9,14 +9,17 @@ use Illuminate\Support\Facades\Hash;
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
 use App\Models\User;
+use Config;
 
 class AuthController extends Controller
 {
     public function loginkms(Request $request)
     {
+        $key = Config::get('apikeys.kms_key');
+        
         $id = $request->tokenkms;
 
-        $kms = JWT::decode($id, new Key(env('ACCESS_TOKEN_SECRET'), 'HS256'));
+        $kms = JWT::decode($id, new Key($key, 'HS256'));
 
         $data = (array) $kms;
 
