@@ -35,14 +35,8 @@
             </div>
 
             <div class="flex items-center justify-end mt-4">
-                @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                        {{ __('Forgot your password?') }}
-                    </a>
-                @endif
-
-                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('register') }}">
-                    {{ __('Create an Account') }}
+                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="https://kms.bpkp.go.id/kms">
+                    {{ __('Belum terdaftar? Login lewat KMS') }}
                 </a>
 
                 <x-jet-button class="ml-4">
