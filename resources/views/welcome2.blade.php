@@ -86,7 +86,6 @@
                             <div class="col-md-7" style="color: mediumblue;">
                                 <a href="{{ route('analytic.detail', ['id-data' => $post->id]) }}" style="text-decoration: none; color: mediumblue; margin-right: 50px;">
                                 <h5>{{$post->judul}}</h5>
-                                <p style="color: black;">Oleh: {{$post->userCreate->name}}</p>
                                 </a>
                             </div>
                             <div class="col-md-5">

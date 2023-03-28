@@ -20,6 +20,7 @@ use App\Http\Controllers\HomeController;
 // })->name('landing');
 
 Route::get('/', [HomeController::class, 'index'])->name('landing');
+Route::get('/kms/{id}', [HomeController::class, 'indexkms'])->name('landingkms');
 
 Route::get('/subject', [ApiBps::class, 'subject']);
 Route::get('/subcat', [ApiBps::class, 'subcat']);
@@ -28,7 +29,7 @@ Route::get('/turvar', [ApiBps::class, 'turvar']);
 Route::get('/th', [ApiBps::class, 'th']);
 Route::get('/unit', [ApiBps::class, 'unit']);
 
-
+Route::post('/loginkms', [App\Http\Controllers\AuthController::class, 'loginkms'])->name('loginkms');
 
 Route::name('list-data.')
     ->prefix('list-data')

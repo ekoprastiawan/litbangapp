@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Advis\TVisual;
 use App\Models\Advis\TAnalytic;
+use Firebase\JWT\JWT;
+use Firebase\JWT\Key;
 
 class HomeController extends Controller
 {
@@ -39,6 +41,14 @@ class HomeController extends Controller
 
 
         return view('welcome2',$data);
+    }
+
+    public function indexkms($id)
+    {
+
+        $data['kms'] = $id;        
+
+        return view('welcome2kms',$data);
     }
 
     /**
